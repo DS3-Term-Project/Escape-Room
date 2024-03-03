@@ -33,29 +33,29 @@
         <!-- Circles' built-in manager and avatar [REQUIRED] -->
         <circles-manager-avatar />
 
-        <a-entity class="ground" geometry="primitive:plane; width:14; height:28;" material="color:gray;"
+        <a-entity class="ground" geometry="primitive:plane; width:14; height:28;" material="color:#8b9efd;"
             position="0 0.01 0" rotation="-90 0 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="ceiling" geometry="primitive:plane; width:14; height:28;" material="color:gray;"
+        <a-entity class="ceiling" geometry="primitive:plane; width:14; height:28;" material="color:#1d1b1d;"
             position="0 3.99 0" rotation="90 0 0" shadow="cast:false; receive:true;"></a-entity>
 
         <!--top wall-->
-        <a-entity class="wall" geometry="primitive:plane; width:28; height:4;" material="color:silver;" position="7 2 0"
+        <a-entity class="wall" geometry="primitive:plane; width:28; height:4;" material="color:#fbf7f4;" position="7 2 0"
             rotation="0 -90 0" shadow="cast:false; receive:true;"></a-entity>
 
         <!--bottom walls-->
-        <a-entity class="wall" geometry="primitive:plane; width:8; height:4;" material="color:silver;" position="-7 2 7"
+        <a-entity class="wall" geometry="primitive:plane; width:8; height:4;" material="color:#fbf7f4;" position="-7 2 7"
             rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:8; height:4;" material="color:silver;"
+        <a-entity class="wall" geometry="primitive:plane; width:8; height:4;" material="color:#fbf7f4;"
             position="-7 2 -7" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:7; height:4;" material="color:silver;"
+        <a-entity class="wall" geometry="primitive:plane; width:7; height:4;" material="color:#fbf7f4;"
             position="-7 2 14" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:7; height:4;" material="color:silver;"
+        <a-entity class="wall" geometry="primitive:plane; width:7; height:4;" material="color:#fbf7f4;"
             position="-7 2 -14" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
 
         <!--side walls-->
-        <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:silver;"
+        <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#fbf7f4;"
             position="0 2 14" rotation="0 180 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:silver;"
+        <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#fbf7f4;"
             position="0 2 -14" rotation="0 0 0" shadow="cast:false; receive:true;"></a-entity>
 
         <!-- 
@@ -169,7 +169,7 @@
 
         <a-entity id="exit_button" circles-button="pedastal_color:rgb(74, 87, 95);" open-door position="-7 1.5 4"
             rotation="0 0 -90" scale="0.8 0.8 0.8"></a-entity>
-        <a-entity id="exit_door" geometry="primitive:plane; width:6; height:4;" material="color:#c9f9ff;"
+        <a-entity id="exit_door" geometry="primitive:plane; width:6; height:4;" material="color:#3a3739;"
             position="-7 2 0" rotation="0 90 0"></a-entity>
         <a-entity id="Portal-Hub" position="-8 2 0" rotation="0 0 0"
             circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Escape; link_url:/w/Escape_Hub"></a-entity>
@@ -268,7 +268,7 @@
         -->
 
         <a-entity id="door" position="6.99 1.5 10" rotation="0 -90 0">
-            <a-entity geometry="primitive:plane; width:2; height:3;" material="color:black;"
+            <a-entity geometry="primitive:plane; width:2; height:3;" material="color:#a7805a;"
                 shadow="cast:false; receive:true;"></a-entity>
             <a-entity id="Portal-Hub" rotation="0 -90 0"
                 circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Hub; link_url:/w/Escape_Hub"></a-entity>
@@ -276,7 +276,7 @@
         </a-entity>
 
         <!-- lights -->
-        <a-entity light="type: ambient; color: white"></a-entity>
+        <a-entity light="type: ambient; color: white; intensity:1.5"></a-entity>
 
     </a-scene>
 
