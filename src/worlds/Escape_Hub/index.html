@@ -23,21 +23,21 @@
         <!-- environment -->
         <a-scene background="color:white"></a-scene>
 
-        <a-entity class="ground" geometry="primitive:plane; width:14; height:14;" material="color:#999999;"
+        <a-entity class="ground" geometry="primitive:plane; width:14; height:14;" material="color:#7b85ba;"
             position="0 0.01 0" rotation="-90 0 0" shadow="cast:false; receive:true;"></a-entity>
         <a-entity id="walls">
-            <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#c9f9ff;"
+            <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#e5d9cb;"
                 position="7 2 0" rotation="0 -90 0" shadow="cast:false; receive:true;"></a-entity>
-            <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#c9f9ff;"
+            <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#e5d9cb;"
                 position="-7 2 0" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
-            <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#c9f9ff;"
+            <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#e5d9cb;"
                 position="0 2 7" rotation="0 180 0" shadow="cast:false; receive:true;"></a-entity>
-            <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#c9f9ff;"
+            <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#e5d9cb;"
                 position="0 2 -7" rotation="0 0 0" shadow="cast:false; receive:true;"></a-entity>
         </a-entity>
 
         <a-entity id="door" position="0 1.5 -6" rotation="0 0 0">
-            <a-entity geometry="primitive:plane; width:2; height:3;" material="color:black;"
+            <a-entity geometry="primitive:plane; width:2; height:3;" material="color:#906544;"
                 shadow="cast:false; receive:true;"></a-entity>
             <a-entity id="Portal-Lab" rotation="0 -90 0"
                 circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Innovation Lab; link_url:/w/Escape_Lab"></a-entity>
@@ -45,7 +45,7 @@
         </a-entity>
 
         <a-entity id="door" position="-3 1.5 -5" rotation="0 45 0">
-            <a-entity geometry="primitive:plane; width:2; height:3;" material="color:black;"
+            <a-entity geometry="primitive:plane; width:2; height:3;" material="color:#906544;"
                 shadow="cast:false; receive:true;"></a-entity>
             <a-entity id="Portal-Auto" rotation="0 -90 0"
                 circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Auto Room; link_url:/w/Wardrobe"></a-entity>
@@ -53,7 +53,7 @@
         </a-entity>
 
         <a-entity id="door" position="3 1.5 -5" rotation="0 -45 0">
-            <a-entity geometry="primitive:plane; width:2; height:3;" material="color:black;"
+            <a-entity geometry="primitive:plane; width:2; height:3;" material="color:#906544;"
                 shadow="cast:false; receive:true;"></a-entity>
             <a-entity id="Portal-Collect" rotation="0 -90 0"
                 circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Collection Room; link_url:/w/Wardrobe"></a-entity>
