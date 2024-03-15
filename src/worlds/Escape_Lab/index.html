@@ -23,7 +23,7 @@
                 crossorigin="anonymous"></a-asset-item>
             <a-asset-item id="table_round" src="assets/models/circular_table.glb" response-type="arraybuffer"
                 crossorigin="anonymous"></a-asset-item>
-            <a-asset-item id="chair" src="assets/models/chair.glb" response-type="arraybuffer"
+            <a-asset-item id="chair" src="assets/models/office_chair.glb" response-type="arraybuffer"
                 crossorigin="anonymous"></a-asset-item>
 
             <a-asset-item id="Clipboard-gltf" src="/worlds/WIT_2_Lab/assets/models/clipboard/scene.gltf"
@@ -62,7 +62,7 @@
         <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #ffffff" position="7 2 15.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #ffffff" position="10.5 2 8" rotation="" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #ffffff" position="10.5 2 12" rotation="0 180 0" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #ffffff" position="14 2 10.48515" rotation="0 -90 0" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #ffffff" position="14 2 10.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
         
         <a-entity>
             <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="6.5 2 -9" rotation="0 180 0" shadow="cast: false"></a-entity>
@@ -98,8 +98,10 @@
 
 
         <a-entity id="door" position="13.9 1.5 10" rotation="0 -90 0">
-            <a-entity geometry="primitive: plane; width: 2; height: 3" material="color: #d2a26d" shadow="cast: false"></a-entity>
-            <a-entity id="Portal-Hub" rotation="0 -90 0" circles-portal="img_src: /global/assets/textures/equirectangular/PurpleBlue.jpg; title_text: Hub; link_url: /w/Escape_Hub"><a-entity class="portal interactive" material="src: /global/assets/textures/equirectangular/PurpleBlue.jpg; shader: flat" geometry="primitive: sphere; radius: 0.5; segmentsWidth: 10; segmentsHeight: 10" circles-interactive-object="type: outline; neutral_scale: 1.1; hover_scale: 1.15; click_scale: 1.15" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5"><a-entity class="object_highlight" geometry="primitive: sphere; radius: 0.5; segmentsWidth: 10; segmentsHeight: 10" material="color: rgb(255,255,255); shader: flat; side: back" scale="1.1 1.1 1.1" shadow="cast: false; receive: false" visible=""></a-entity></a-entity><a-entity class="title" position="0 1 0" rotation="0 90 0" text="value: Hub; align: center; width: 5"></a-entity></a-entity>
+            <a-entity geometry="primitive:plane; width:2; height:3;" material="color:#d2a26d;"
+                shadow="cast:false; receive:true;"></a-entity>
+            <a-entity id="Portal-Hub" rotation="0 -90 0"
+                circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Hub; link_url:/w/Escape_Hub"></a-entity>
             <a-entity circles-checkpoint circles-spawnpoint position="0 -1.5 1.5"></a-entity>        
         </a-entity>
 
@@ -329,7 +331,7 @@
         -->
 
         <!-- lights -->
-        <a-entity light="type: ambient; color: white; intensity:1.5"></a-entity>
+        <a-entity light="type: ambient; color: white; intensity:2.4"></a-entity>
 
         <!--telepresence robot-->
         <a-entity id="helper" position="0 0 4" rotation="0 0 0">

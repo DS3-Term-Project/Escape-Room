@@ -1,0 +1,178 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- Circles' head scripts [REQUIRED] -->
+    <circles-start-scripts />
+
+</head>
+
+<body>
+    <!-- this is used to create our enter UI that creates a 2D overlay to capture a user gesture for sound/mic access etc. -->
+    <circles-start-ui />
+    <!-- a-scene with 'circles-properties' component [REQUIRED] -->
+    <a-scene circles_scene_properties background="color:black">
+
+        <a-assets>
+            <!-- Circles' built-in assets [REQUIRED] -->
+            <circles-assets />
+
+            
+
+        </a-assets>
+
+        <!-- Circles' built-in manager and avatar [REQUIRED] -->
+        <circles-manager-avatar />
+
+        <a-entity class="ground" geometry="primitive:plane; width:28; height:28;" material="color:#cac5bf;"
+            position="0 0.01 0" rotation="-90 0 0" shadow="cast:false; receive:true;"></a-entity>
+        <a-entity class="ceiling" geometry="primitive:plane; width:28; height:28;" material="color:#cac5bf;"
+            position="0 3.99 0" rotation="90 0 0" shadow="cast:false; receive:true;"></a-entity>
+
+        <!--top wall-->
+        <!--
+        <a-entity class="wall" geometry="primitive:plane; width:28; height:4;" material="color:#f7f7f7;" position="7 2 0"
+            rotation="0 -90 0" shadow="cast:false; receive:true;"></a-entity>
+        -->
+        <!--bottom walls-->
+        
+        <a-entity class="wall" geometry="primitive:plane; width:8; height:4;" material="color:#f7f7f7;" position="-7 2 7"
+            rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
+        <a-entity class="wall" geometry="primitive:plane; width:8; height:4;" material="color:#f7f7f7;"
+            position="-7 2 -7" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
+        <a-entity class="wall" geometry="primitive:plane; width:7; height:4;" material="color:#f7f7f7;"
+            position="-7 2 14" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
+        <a-entity class="wall" geometry="primitive:plane; width:7; height:4;" material="color:#f7f7f7;"
+            position="-7 2 -14" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
+        
+
+        <a-entity class="wall" geometry="primitive: plane; width: 28; height: 4" material="color: #f7f7f7" position="7 2 -6" rotation="0 -90 0" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #f7f7f7" position="7 2 15.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #f7f7f7" position="10.5 2 8" rotation="" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #f7f7f7" position="10.5 2 12" rotation="0 180 0" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #f7f7f7" position="14 2 10.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
+        
+        <a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -9" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="5.5 2 -8" rotation="0 -90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -7" rotation="" shadow="cast: false"></a-entity>
+        </a-entity>
+        <a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="5.5 2 -4.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
+        </a-entity>
+        <a-entity position="0 0 11.5">
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="5.5 2 -4.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
+        </a-entity>
+        <a-entity position="-12.5 0 11.5">
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="7.5 2 -4.5" rotation="0 90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
+        </a-entity>
+
+        <a-entity position="-12.5 0 0">
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -9" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="7.5 2 -8" rotation="0 90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -7" rotation="" shadow="cast: false"></a-entity>
+        </a-entity>
+        <a-entity position="-12.5 0 0">
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="7.5 2 -4.5" rotation="0 90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
+        </a-entity>
+
+
+        <a-entity id="door" position="13.9 1.5 10" rotation="0 -90 0">
+            <a-entity geometry="primitive:plane; width:2; height:3;" material="color:#d2a26d;"
+                shadow="cast:false; receive:true;"></a-entity>
+            <a-entity id="Portal-Hub" rotation="0 -90 0"
+                circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Hub; link_url:/w/Escape_Hub"></a-entity>
+            <a-entity circles-checkpoint circles-spawnpoint position="0 -1.5 1.5"></a-entity>        
+        </a-entity>
+
+        <!--side walls-->
+        <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#f7f7f7;"
+            position="0 2 14" rotation="0 180 0" shadow="cast:false; receive:true;"></a-entity>
+        <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#f7f7f7;"
+            position="0 2 -14" rotation="0 0 0" shadow="cast:false; receive:true;"></a-entity>
+
+        <!-- 
+            top wall of room x=7
+            bottom wall of room x=-7
+            left wall of room z=-14
+            right wall of room z=14
+        -->
+
+        <!-- left side of room -->
+        <a-entity circles-checkpoint position="5 0 -12"></a-entity>
+        <a-entity circles-checkpoint position="-1 0 -10"></a-entity>
+        <a-entity circles-checkpoint position="5 0 -8"></a-entity>
+        <a-entity circles-checkpoint position="-4 0 -8"></a-entity>
+        <a-entity circles-checkpoint position="0 0 -6"></a-entity>
+
+
+
+        <!-- center of room -->
+        <a-entity circles-checkpoint position="0 0 1"></a-entity>
+        <a-entity circles-checkpoint position="5 0 1"></a-entity>
+        <a-entity circles-checkpoint position="-5 0 0"></a-entity>
+
+
+
+        <a-entity id="exit_button" circles-button="pedastal_color:rgb(74, 87, 95);" open-door position="-7 1.5 4"
+            rotation="0 0 -90" scale="0.8 0.8 0.8"></a-entity>
+        <a-entity id="exit_door" geometry="primitive:plane; width:6; height:4;" material="color:#3a3739;"
+            position="-7 2 0" rotation="0 90 0"></a-entity>
+        <a-entity id="Portal-Hub" position="-8 2 0" rotation="0 0 0"
+            circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Escape; link_url:/w/Escape_Hub"></a-entity>
+
+        <!-- right side of room -->
+        <a-entity circles-checkpoint position="0 0 7"></a-entity>
+        <a-entity circles-checkpoint position="-4.5 0 7"></a-entity>
+        <a-entity circles-checkpoint position="-4 0 12"></a-entity>
+        <a-entity circles-checkpoint position="0 0 12"></a-entity>
+        <a-entity circles-checkpoint position="4 0 12"></a-entity>
+
+
+
+        <!-- 
+            top is x=7
+            bottom is x=-7
+            left is z=-14
+            right is z=14
+        -->
+
+        <!--
+        <a-entity id="door" position="6.99 1.5 10" rotation="0 -90 0">
+            <a-entity geometry="primitive:plane; width:2; height:3;" material="color:#d2a26d;"
+                shadow="cast:false; receive:true;"></a-entity>
+            <a-entity id="Portal-Hub" rotation="0 -90 0"
+                circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Hub; link_url:/w/Escape_Hub"></a-entity>
+            <a-entity circles-checkpoint circles-spawnpoint position="0 -1.5 1.5"></a-entity>
+        </a-entity>
+        -->
+
+        <!-- lights -->
+        <a-entity light="type: ambient; color: white; intensity:2.0"></a-entity>
+
+        <!--telepresence robot-->
+        <a-entity id="helper" position="0 0 4" rotation="0 0 0">
+            <a-entity geometry="primitive: cone; height: 0.15; radiusBottom: 0.2; radiusTop: 0.15" material="color:#778899" position="0 0.2 -0.15" rotation="90 0 0"></a-entity>
+            <a-entity geometry="primitive: cone; height: 0.15; radiusBottom: 0.2; radiusTop: 0.15" material="color:#778899" position="0 0.2 0.15" rotation="-90 0 0"></a-entity>
+            <a-entity geometry="primitive: cylinder; height: 0.15; radius: 0.15" material="color:#2F4F4F" position="0 0.2 0" rotation="-90 0 0"></a-entity>
+            <a-entity geometry="primitive: cylinder; height: 1.5; radius: 0.03" material="color:#778899" position="0 0.8 0" rotation="0 0 0"></a-entity>
+            <a-entity geometry="primitive: box; width: 0.1; height: 0.4; depth: 0.3" material="color:#2F4F4F" position="0 1.5 0" rotation="0 0 0">
+                <a-entity geometry="primitive:plane; width:0.2; height:0.3;" material="src:#" position="0.051 0 0" rotation="0 90 0"></a-entity>
+            </a-entity>
+        </a-entity>
+
+    </a-scene>
+
+    <!-- Circles' end scripts [REQUIRED] -->
+    <circles-end-scripts />
+</body>
+
+</html>
