@@ -12,9 +12,9 @@
     <!-- this is used to create our enter UI that creates a 2D overlay to capture a user gesture for sound/mic access etc. -->
     <circles-start-ui />
     <!-- a-scene with 'circles-properties' component [REQUIRED] -->
-    <a-scene circles_scene_properties background="color:black">
+    <a-scene circles_scene_properties background="color:white">
 
-        <a-assets>
+        <a-assets timeout="10000">
             <!-- Circles' built-in assets [REQUIRED] -->
             <circles-assets />
 
@@ -28,6 +28,14 @@
 
             <a-asset-item id="Clipboard-gltf" src="/worlds/WIT_2_Lab/assets/models/clipboard/scene.gltf"
                 response-type="arraybuffer"></a-asset-item>
+
+            
+
+            <a-asset-item id="whiteboard" src="assets/models/whiteboard_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="whiteboardStand" src="assets/models/whiteboardStand_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+            
+            <a-asset-item id="clock" src="assets/models/clock_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+
 
             <img id="gigablake" src="assets/textures/gigablake.png">
 
@@ -167,8 +175,7 @@
             shadow="cast:true; receive:false;"></a-entity>
         <a-entity gltf-model="#chair" position="5 0 -0.5" rotation="0 0 0" scale="1 1 1"
             shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="-6 0 -2.5" rotation="0 45 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
+        
 
         <a-entity id="Artifact-Clipboard" class="interactive narrative" position="-0.5 0.82 2" rotation="-90 15 0.0"
             scale="1 1 1" gltf-model="#Clipboard-gltf" shadow="receive:false; cast:false;"
@@ -210,15 +217,27 @@
                         description_back:This item has a code or cipher on it;
                         label_text:Clipboard;"></a-entity>
 
-        <a-entity id="Artifact-Clipboard" class="interactive narrative" position="-0.5 0.82 -5" rotation="-90 15 0.0"
-            scale="1 1 1" gltf-model="#Clipboard-gltf" shadow="receive:false; cast:false;"
-            circles-sphere-env-map="src:/global/assets/textures/equirectangular/WhiteBlue.jpg" circles-artefact="inspectScale:1.2 1.2 1.2; 
-                        label_offset:0 0.35 0; arrow_position:down;
+
+            <a-entity id="Artifact-Clock" class="interactive narrative" gltf-model="#clock" position="0 1 0" rotation="0 0 0"
+            scale="1 1 1" shadow="receive:false; cast:false;"
+            circles-sphere-env-map="src:/global/assets/textures/equirectangular/WhiteBlue.jpg" circles-artefact="inspectScale:1 1 1; 
+                        label_offset:0 1.2 0; arrow_position:down;
                         title:Useful information; 
                         description:This item has a code or cipher on it;
                         title_back:More useful information;
                         description_back:This item has a code or cipher on it;
-                        label_text:Clipboard;"></a-entity>
+                        label_text:Clock;"></a-entity>
+
+    <!--
+            <a-entity gltf-model="#clock" position="0 1 0" rotation="0 0 0" scale="0.01 0.01 0.01"
+                shadow="cast:true; receive:false;"></a-entity>
+    --->
+
+        <a-entity gltf-model="#whiteboard" position="3 0 0" rotation="0 0 0" scale="40 40 40"
+            shadow="cast:true; receive:false;"></a-entity>
+
+        <a-entity gltf-model="#whiteboardStand" position="-3 0 0" rotation="0 0 0" scale="50 50 50"
+            shadow="cast:true; receive:false;"></a-entity>
 
         <a-entity id="exit_button" circles-button="pedastal_color:rgb(74, 87, 95);" open-door position="-7 1.5 4"
             rotation="0 0 -90" scale="0.8 0.8 0.8"></a-entity>
@@ -334,6 +353,7 @@
         <a-entity light="type: ambient; color: white; intensity:2.4"></a-entity>
 
         <!--telepresence robot-->
+        <!--
         <a-entity id="helper" position="0 0 4" rotation="0 0 0">
             <a-entity geometry="primitive: cone; height: 0.15; radiusBottom: 0.2; radiusTop: 0.15" material="color:#778899" position="0 0.2 -0.15" rotation="90 0 0"></a-entity>
             <a-entity geometry="primitive: cone; height: 0.15; radiusBottom: 0.2; radiusTop: 0.15" material="color:#778899" position="0 0.2 0.15" rotation="-90 0 0"></a-entity>
@@ -343,6 +363,7 @@
                 <a-entity geometry="primitive:plane; width:0.2; height:0.3;" material="src:#gigablake" position="0.051 0 0" rotation="0 90 0"></a-entity>
             </a-entity>
         </a-entity>
+    -->
 
     </a-scene>
 
