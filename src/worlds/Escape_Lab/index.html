@@ -29,11 +29,11 @@
             <a-asset-item id="Clipboard-gltf" src="/worlds/WIT_2_Lab/assets/models/clipboard/scene.gltf"
                 response-type="arraybuffer"></a-asset-item>
 
-            
+
 
             <a-asset-item id="whiteboard" src="assets/models/whiteboard_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
             <a-asset-item id="whiteboardStand" src="assets/models/whiteboardStand_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-            
+
             <a-asset-item id="clock" src="assets/models/clock_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
 
 
@@ -55,7 +55,7 @@
             rotation="0 -90 0" shadow="cast:false; receive:true;"></a-entity>
         -->
         <!--bottom walls-->
-        
+
         <a-entity class="wall" geometry="primitive:plane; width:8; height:4;" material="color:#ffffff;" position="-7 2 7"
             rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
         <a-entity class="wall" geometry="primitive:plane; width:8; height:4;" material="color:#ffffff;"
@@ -64,14 +64,14 @@
             position="-7 2 14" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
         <a-entity class="wall" geometry="primitive:plane; width:7; height:4;" material="color:#ffffff;"
             position="-7 2 -14" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
-        
+
 
         <a-entity class="wall" geometry="primitive: plane; width: 28; height: 4" material="color: #ffffff" position="7 2 -6" rotation="0 -90 0" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #ffffff" position="7 2 15.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #ffffff" position="10.5 2 8" rotation="" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #ffffff" position="10.5 2 12" rotation="0 180 0" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #ffffff" position="14 2 10.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
-        
+
         <a-entity>
             <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="6.5 2 -9" rotation="0 180 0" shadow="cast: false"></a-entity>
             <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="5.5 2 -8" rotation="0 -90 0" shadow="cast: false"></a-entity>
@@ -110,7 +110,7 @@
                 shadow="cast:false; receive:true;"></a-entity>
             <a-entity id="Portal-Hub" rotation="0 -90 0"
                 circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Hub; link_url:/w/Escape_Hub"></a-entity>
-            <a-entity circles-checkpoint circles-spawnpoint position="0 -1.5 1.5"></a-entity>        
+            <a-entity circles-checkpoint circles-spawnpoint position="0 -1.5 1.5"></a-entity>
         </a-entity>
 
         <!--side walls-->
@@ -119,7 +119,7 @@
         <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#ffffff;"
             position="0 2 -14" rotation="0 0 0" shadow="cast:false; receive:true;"></a-entity>
 
-        <!-- 
+        <!--
             top wall of room x=7
             bottom wall of room x=-7
             left wall of room z=-14
@@ -145,7 +145,7 @@
         <a-entity class="interactive narrative" geometry="primitive:plane; width:3; height:2;" material="color:white;"
             position="-6.9 2 -8" rotation="0 90 0" shadow="cast:false; receive:true;" circles-artefact="inspectScale:1.0 1.0 1.0;
             label_offset:0 0.35 0.35; arrow_position:down;
-            title:Useful information; 
+            title:Useful information;
             description:This item has a code or cipher on it;
             title_back:More useful information;
             description_back:This item has a code or cipher on it;
@@ -175,13 +175,13 @@
             shadow="cast:true; receive:false;"></a-entity>
         <a-entity gltf-model="#chair" position="5 0 -0.5" rotation="0 0 0" scale="1 1 1"
             shadow="cast:true; receive:false;"></a-entity>
-        
+
 
         <a-entity id="Artifact-Clipboard" class="interactive narrative" position="-0.5 0.82 2" rotation="-90 15 0.0"
             scale="1 1 1" gltf-model="#Clipboard-gltf" shadow="receive:false; cast:false;"
-            circles-sphere-env-map="src:/global/assets/textures/equirectangular/WhiteBlue.jpg" circles-artefact="inspectScale:1.2 1.2 1.2; 
+            circles-sphere-env-map="src:/global/assets/textures/equirectangular/WhiteBlue.jpg" circles-artefact="inspectScale:1.2 1.2 1.2;
                         label_offset:0 0.35 0; arrow_position:down;
-                        title:Useful information; 
+                        title:Useful information;
                         description:This artifact has a code or cipher on it;
                         title_back:More useful information;
                         description_back:This artifact has a code or cipher on it;
@@ -189,9 +189,9 @@
 
         <a-entity id="Artifact-Clipboard" class="interactive narrative" position="0.1 0.82 2" rotation="-90 15 0.0"
             scale="1 1 1" gltf-model="#Clipboard-gltf" shadow="receive:false; cast:false;"
-            circles-sphere-env-map="src:/global/assets/textures/equirectangular/WhiteBlue.jpg" circles-artefact="inspectScale:1.2 1.2 1.2; 
+            circles-sphere-env-map="src:/global/assets/textures/equirectangular/WhiteBlue.jpg" circles-artefact="inspectScale:1.2 1.2 1.2;
                         label_offset:0 0.35 0; arrow_position:down;
-                        title:Useful information; 
+                        title:Useful information;
                         description:This item has a code or cipher on it;
                         title_back:More useful information;
                         description_back:This item has a code or cipher on it;
@@ -199,9 +199,9 @@
 
         <a-entity id="Artifact-Clipboard" class="interactive narrative" position="0.5 0.82 -5" rotation="-90 15 0.0"
             scale="1 1 1" gltf-model="#Clipboard-gltf" shadow="receive:false; cast:false;"
-            circles-sphere-env-map="src:/global/assets/textures/equirectangular/WhiteBlue.jpg" circles-artefact="inspectScale:1.2 1.2 1.2; 
+            circles-sphere-env-map="src:/global/assets/textures/equirectangular/WhiteBlue.jpg" circles-artefact="inspectScale:1.2 1.2 1.2;
                                     label_offset:0 0.35 0; arrow_position:down;
-                                    title:Useful information; 
+                                    title:Useful information;
                                     description:This item has a code or cipher on it;
                                     title_back:More useful information;
                                     description_back:This item has a code or cipher on it;
@@ -209,9 +209,9 @@
 
         <a-entity id="Artifact-Clipboard" class="interactive narrative" position="0.1 0.82 -5" rotation="-90 15 0.0"
             scale="1 1 1" gltf-model="#Clipboard-gltf" shadow="receive:false; cast:false;"
-            circles-sphere-env-map="src:/global/assets/textures/equirectangular/WhiteBlue.jpg" circles-artefact="inspectScale:1.2 1.2 1.2; 
+            circles-sphere-env-map="src:/global/assets/textures/equirectangular/WhiteBlue.jpg" circles-artefact="inspectScale:1.2 1.2 1.2;
                         label_offset:0 0.35 0; arrow_position:down;
-                        title:Useful information; 
+                        title:Useful information;
                         description:This item has a code or cipher on it;
                         title_back:More useful information;
                         description_back:This item has a code or cipher on it;
@@ -220,9 +220,9 @@
 
             <a-entity id="Artifact-Clock" class="interactive narrative" gltf-model="#clock" position="0 1 0" rotation="0 0 0"
             scale="1 1 1" shadow="receive:false; cast:false;"
-            circles-sphere-env-map="src:/global/assets/textures/equirectangular/WhiteBlue.jpg" circles-artefact="inspectScale:1 1 1; 
+            circles-sphere-env-map="src:/global/assets/textures/equirectangular/WhiteBlue.jpg" circles-artefact="inspectScale:1 1 1;
                         label_offset:0 1.2 0; arrow_position:down;
-                        title:Useful information; 
+                        title:Useful information;
                         description:This item has a code or cipher on it;
                         title_back:More useful information;
                         description_back:This item has a code or cipher on it;
@@ -264,7 +264,7 @@
             scale="1 1 1" gltf-model="#Clipboard-gltf" shadow="receive:false; cast:false;"
             circles-sphere-env-map="src:/global/assets/textures/equirectangular/WhiteBlue.jpg" circles-artefact="inspectScale:1.2 1.2 1.2; textRotationY:90;
                         label_offset:0 0.35 0; arrow_position:down;
-                        title:Useful information; 
+                        title:Useful information;
                         description:This item has a code or cipher on it;
                         title_back:More useful information;
                         description_back:This item has a code or cipher on it;
@@ -273,7 +273,7 @@
         <a-entity class="interactive narrative" geometry="primitive:plane; width:3; height:2;" material="color:white;"
             position="-4 2 13.9" rotation="0 180 0" shadow="cast:false; receive:true;" circles-artefact="inspectScale:1.0 1.0 1.0;
             label_offset:0 0.35 0.35; arrow_position:down;
-            title:Useful information; 
+            title:Useful information;
             description:This item has a code or cipher on it;
             title_back:More useful information;
             description_back:This item has a code or cipher on it;
@@ -282,7 +282,7 @@
         <a-entity class="interactive narrative" geometry="primitive:plane; width:3; height:2;" material="color:white;"
             position="0 2 13.9" rotation="0 180 0" shadow="cast:false; receive:true;" circles-artefact="inspectScale:1.0 1.0 1.0;
             label_offset:0 0.35 0.35; arrow_position:down;
-            title:Useful information; 
+            title:Useful information;
             description:This item has a code or cipher on it;
             title_back:More useful information;
             description_back:This item has a code or cipher on it;
@@ -291,7 +291,7 @@
         <a-entity class="interactive narrative" geometry="primitive:plane; width:3; height:2;" material="color:white;"
             position="4 2 13.9" rotation="0 180 0" shadow="cast:false; receive:true;" circles-artefact="inspectScale:1.0 1.0 1.0;
             label_offset:0 0.35 0.35; arrow_position:down;
-            title:Useful information; 
+            title:Useful information;
             description:This item has a code or cipher on it;
             title_back:More useful information;
             description_back:This item has a code or cipher on it;
@@ -332,7 +332,7 @@
         <a-entity gltf-model="#chair" position="-5.3 0 12.0" rotation="0 180 0" scale="1 1 1"
             shadow="cast:true; receive:false;"></a-entity>
 
-        <!-- 
+        <!--
             top is x=7
             bottom is x=-7
             left is z=-14
@@ -369,6 +369,26 @@
 
     <!-- Circles' end scripts [REQUIRED] -->
     <circles-end-scripts />
+
+    <script>
+      // Define a function to check if an object is being held
+      function checkIfObjectIsHeld() {
+        // Use the provided function to get the currently held object
+        const heldObject = CIRCLES.getPickedUpElement();
+
+        // Check if the result is not null (meaning an object is currently held)
+        if (heldObject !== null) {
+          // Log to the console
+          console.log("OBJECT HELD");
+          console.log(heldObject);
+        }
+      }
+
+      // Set up an interval to periodically check for a held object
+      // This example checks every 1000 milliseconds (1 second)
+      setInterval(checkIfObjectIsHeld, 1000);
+
+    </script>
 </body>
 
 </html>
