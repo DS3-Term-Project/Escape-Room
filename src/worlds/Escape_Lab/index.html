@@ -64,6 +64,10 @@
             <audio id="ding2" crossorigin="anonymous" preload="auto" src="assets/audio/ding2.mp3"></audio>
             <audio id="garage" crossorigin="anonymous" preload="auto" src="assets/audio/garagedoor2.mp3"></audio>
 
+            <img id="floorTex" src="assets/textures/floor_tex.jpg" response-type="arraybuffer" crossorigin="anonymous"></img>
+            <img id="wallTex" src="assets/textures/wall_tex.jpg" response-type="arraybuffer" crossorigin="anonymous"></img>
+            <img id="roofTex" src="assets/textures/roof_tex.jpg" response-type="arraybuffer" crossorigin="anonymous"></img>
+
             <a-asset-item id="Clipboard-gltf" src="/worlds/WIT_2_Lab/assets/models/clipboard/scene.gltf"response-type="arraybuffer"></a-asset-item>
 
             <a-asset-item id="plant" src="assets/models/plant.glb" response-type="arraybuffer"crossorigin="anonymous"></a-asset-item>
@@ -96,64 +100,65 @@
 
         <!-- Circles' built-in manager and avatar [REQUIRED] -->
         <circles-manager-avatar />
-
-        <a-entity class="ground" geometry="primitive:plane; width:28; height:28;" material="color:#8d97ff;" position="0 0.01 0" rotation="-90 0 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="ceiling" geometry="primitive:plane; width:28; height:28;" material="color:#1d1b1d;" position="0 6.99 0" rotation="90 0 0" shadow="cast:false; receive:true;"></a-entity>
+        
+        <!--<a-entity class="ground" geometry="primitive:plane; width:28; height:28;" material="color:#8d97ff;" position="0 0.01 0" rotation="-90 0 0" shadow="cast:false; receive:true;"></a-entity>-->
+        <a-entity class="ground" geometry="primitive:plane; width:22; height:28;" material="src:#floorTex; repeat:8 8" position="3.5 0.01 0" rotation="-90 0 0" shadow="cast:false; receive:true;"></a-entity>
+        <a-entity class="ceiling" geometry="primitive:plane; width:22; height:28;" material="src:#roofTex; repeat:10 6" position="3.5 5 0" rotation="90 0 0" shadow="cast:false; receive:true;"></a-entity>
 
         <!--top wall-->
         <!--
-        <a-entity class="wall" geometry="primitive:plane; width:28; height:12;" material="color:#e6e4f0;" position="7 2 0"
+        <a-entity class="wall" geometry="primitive:plane; width:28; height:8;" material="src:#e6e4f0;" position="7 2 0"
             rotation="0 -90 0" shadow="cast:false; receive:true;"></a-entity>
         -->
         <!--bottom walls-->
         
-        <a-entity class="wall" geometry="primitive:plane; width:8; height:12;" material="color:#e6e4f0;" position="-7 2 7" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:8; height:12;" material="color:#e6e4f0;" position="-7 2 -7" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:7; height:12;" material="color:#e6e4f0;" position="-7 2 14" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:7; height:12;" material="color:#e6e4f0;" position="-7 2 -14" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
+        <a-entity class="wall" geometry="primitive:plane; width:8; height:8;" material="src:#wallTex;" position="-7 3 7" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
+        <a-entity class="wall" geometry="primitive:plane; width:8; height:8;" material="src:#wallTex;" position="-7 3 -7" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
+        <a-entity class="wall" geometry="primitive:plane; width:7; height:8;" material="src:#wallTex;" position="-7 3 14" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
+        <a-entity class="wall" geometry="primitive:plane; width:7; height:8;" material="src:#wallTex;" position="-7 3 -14" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
 
-        <a-entity class="wall" geometry="primitive: plane; width: 28; height:12" material="color: #e6e4f0" position="7 2 -6" rotation="0 -90 0" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 7; height:12" material="color: #e6e4f0" position="7 2 15.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 7; height:12" material="color: #e6e4f0" position="10.5 2 8" rotation="" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 7; height:12" material="color: #e6e4f0" position="10.5 2 12" rotation="0 180 0" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 7; height:12" material="color: #e6e4f0" position="14 2 10.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 28; height:8" material="src:#wallTex;" position="7 3 -6" rotation="0 -90 0" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 7; height:8" material="src:#wallTex;" position="7 3 15.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 7; height:8" material="src:#wallTex;" position="10.5 3 8" rotation="" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 7; height:8" material="src:#wallTex;" position="10.5 3 12" rotation="0 180 0" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 7; height:8" material="src:#wallTex;" position="14 3 10.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
         
         <a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="6.5 2 -9" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="5.5 2 -8" rotation="0 -90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="6.5 2 -7" rotation="" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="6.5 3 -9" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="5.5 3 -8" rotation="0 -90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="6.5 3 -7" rotation="" shadow="cast: false"></a-entity>
         </a-entity>
         <a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="5.5 2 -4.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="6.5 3 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="5.5 3 -4.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="6.5 3 -3.5" rotation="" shadow="cast: false"></a-entity>
         </a-entity>
         <a-entity position="0 0 11.5">
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="5.5 2 -4.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="6.5 3 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="5.5 3 -4.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="6.5 3 -3.5" rotation="" shadow="cast: false"></a-entity>
         </a-entity>
         <a-entity position="-12.5 0 11.5">
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="7.5 2 -4.5" rotation="0 90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="6.5 3 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="7.5 3 -4.5" rotation="0 90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="6.5 3 -3.5" rotation="" shadow="cast: false"></a-entity>
         </a-entity>
 
         <a-entity position="-12.5 0 0">
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="6.5 2 -9" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="7.5 2 -8" rotation="0 90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="6.5 2 -7" rotation="" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="6.5 3 -9" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="7.5 3 -8" rotation="0 90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="6.5 3 -7" rotation="" shadow="cast: false"></a-entity>
         </a-entity>
         <a-entity position="-12.5 0 0">
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="7.5 2 -4.5" rotation="0 90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height:12" material="color: #e6e4f0" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="6.5 3 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="7.5 3 -4.5" rotation="0 90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height:8" material="src:#wallTex;" position="6.5 3 -3.5" rotation="" shadow="cast: false"></a-entity>
         </a-entity>
 
         <!--side walls-->
-        <a-entity class="wall" geometry="primitive:plane; width:14; height:12;" material="color:#e6e4f0;" position="0 2 14" rotation="0 180 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:14; height:12;" material="color:#e6e4f0;" position="0 2 -14" rotation="0 0 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:6; height:4;" material="color:#e6e4f0;" position="-7.01 6 0" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
+        <a-entity class="wall" geometry="primitive:plane; width:14; height:8;" material="src:#wallTex;" position="0 3 14" rotation="0 180 0" shadow="cast:false; receive:true;"></a-entity>
+        <a-entity class="wall" geometry="primitive:plane; width:14; height:8;" material="src:#wallTex;" position="0 3 -14" rotation="0 0 0" shadow="cast:false; receive:true;"></a-entity>
+        <a-entity class="wall" geometry="primitive:plane; width:6; height:4;" material="src:#wallTex;" position="-7.01 6 0" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
 
             <a-entity id="door" position="13.9 1.5 10" rotation="0 -90 0">
                 <a-entity geometry="primitive:plane; width:2; height:3;" material="color:#d2a26d;"
@@ -320,7 +325,7 @@
         -->
 
         <!-- lights -->
-        <a-entity light="type: ambient; color: white; intensity:2.0"></a-entity>
+        <a-entity light="type: ambient; color: white; intensity:3.0"></a-entity>
 
         <!--telepresence robot-->
         <!--
