@@ -1,5 +1,4 @@
-AFRAME.registerComponent('open-door', {
-    init: () => {
+
         const exitDoor = document.querySelector("#exit_door");
         const btn = document.querySelector("#exit_button");
 
@@ -11,5 +10,3 @@ AFRAME.registerComponent('open-door', {
                 to: "-7 6 0"
             });
         });
-    }
-});
