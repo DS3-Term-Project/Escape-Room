@@ -19,25 +19,32 @@
             <circles-assets />
 
             <!-- assets -->
-            <a-asset-item id="table_rect" src="assets/models/rectangular_table.glb" response-type="arraybuffer"
-                crossorigin="anonymous"></a-asset-item>
-            <a-asset-item id="table_round" src="assets/models/circular_table.glb" response-type="arraybuffer"
-                crossorigin="anonymous"></a-asset-item>
-            <a-asset-item id="chair" src="assets/models/office_chair.glb" response-type="arraybuffer"
-                crossorigin="anonymous"></a-asset-item>
 
-            <a-asset-item id="Clipboard-gltf" src="/worlds/WIT_2_Lab/assets/models/clipboard/scene.gltf"
-                response-type="arraybuffer"></a-asset-item>
+            <a-asset-item id="Clipboard-gltf" src="/worlds/WIT_2_Lab/assets/models/clipboard/scene.gltf"response-type="arraybuffer"></a-asset-item>
 
+            <a-asset-item id="tableRect" src="assets/models/table_rect.glb" response-type="arraybuffer"crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="tableRound" src="assets/models/table_round.glb" response-type="arraybuffer"crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="tableHigh" src="assets/models/table_high.glb" response-type="arraybuffer"crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="tableDesk" src="assets/models/table_desk.glb" response-type="arraybuffer"crossorigin="anonymous"></a-asset-item>
             
+            <a-asset-item id="couch" src="assets/models/couch.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="chair" src="assets/models/chair.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="chairHigh" src="assets/models/chair_high.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="chairOffice" src="assets/models/chair_office.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="chairLounge" src="assets/models/chair_lounge.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
 
             <a-asset-item id="whiteboard" src="assets/models/whiteboard_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-            <a-asset-item id="whiteboardStand" src="assets/models/whiteboardStand_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="whiteboardStand1" src="assets/models/whiteboardStand1_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="whiteboardStand2" src="assets/models/whiteboardStand2_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="whiteboardStand3" src="assets/models/whiteboardStand3_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
             
+            <a-asset-item id="corkboard" src="assets/models/corkboard_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+
             <a-asset-item id="clock" src="assets/models/clock_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="clockOpen" src="assets/models/clockOpen_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
 
-
-            <img id="gigablake" src="assets/textures/gigablake.png">
+            <a-asset-item id="briefcase" src="assets/models/briefcase_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="briefcaseOpen" src="assets/models/briefcaseOpen_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
 
         </a-assets>
 
@@ -51,57 +58,57 @@
 
         <!--top wall-->
         <!--
-        <a-entity class="wall" geometry="primitive:plane; width:28; height:4;" material="color:#ffffff;" position="7 2 0"
+        <a-entity class="wall" geometry="primitive:plane; width:28; height:4;" material="color:#e6e4f0;" position="7 2 0"
             rotation="0 -90 0" shadow="cast:false; receive:true;"></a-entity>
         -->
         <!--bottom walls-->
         
-        <a-entity class="wall" geometry="primitive:plane; width:8; height:4;" material="color:#ffffff;" position="-7 2 7"
+        <a-entity class="wall" geometry="primitive:plane; width:8; height:4;" material="color:#e6e4f0;" position="-7 2 7"
             rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:8; height:4;" material="color:#ffffff;"
+        <a-entity class="wall" geometry="primitive:plane; width:8; height:4;" material="color:#e6e4f0;"
             position="-7 2 -7" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:7; height:4;" material="color:#ffffff;"
+        <a-entity class="wall" geometry="primitive:plane; width:7; height:4;" material="color:#e6e4f0;"
             position="-7 2 14" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:7; height:4;" material="color:#ffffff;"
+        <a-entity class="wall" geometry="primitive:plane; width:7; height:4;" material="color:#e6e4f0;"
             position="-7 2 -14" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
         
 
-        <a-entity class="wall" geometry="primitive: plane; width: 28; height: 4" material="color: #ffffff" position="7 2 -6" rotation="0 -90 0" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #ffffff" position="7 2 15.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #ffffff" position="10.5 2 8" rotation="" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #ffffff" position="10.5 2 12" rotation="0 180 0" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #ffffff" position="14 2 10.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 28; height: 4" material="color: #e6e4f0" position="7 2 -6" rotation="0 -90 0" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #e6e4f0" position="7 2 15.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #e6e4f0" position="10.5 2 8" rotation="" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #e6e4f0" position="10.5 2 12" rotation="0 180 0" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #e6e4f0" position="14 2 10.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
         
         <a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="6.5 2 -9" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="5.5 2 -8" rotation="0 -90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="6.5 2 -7" rotation="" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="6.5 2 -9" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="5.5 2 -8" rotation="0 -90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="6.5 2 -7" rotation="" shadow="cast: false"></a-entity>
         </a-entity>
         <a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="5.5 2 -4.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="5.5 2 -4.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
         </a-entity>
         <a-entity position="0 0 11.5">
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="5.5 2 -4.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="5.5 2 -4.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
         </a-entity>
         <a-entity position="-12.5 0 11.5">
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="7.5 2 -4.5" rotation="0 90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="7.5 2 -4.5" rotation="0 90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
         </a-entity>
 
         <a-entity position="-12.5 0 0">
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="6.5 2 -9" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="7.5 2 -8" rotation="0 90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="6.5 2 -7" rotation="" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="6.5 2 -9" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="7.5 2 -8" rotation="0 90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="6.5 2 -7" rotation="" shadow="cast: false"></a-entity>
         </a-entity>
         <a-entity position="-12.5 0 0">
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="7.5 2 -4.5" rotation="0 90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #ffffff" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="7.5 2 -4.5" rotation="0 90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #e6e4f0" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
         </a-entity>
 
 
@@ -114,9 +121,9 @@
         </a-entity>
 
         <!--side walls-->
-        <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#ffffff;"
+        <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#e6e4f0;"
             position="0 2 14" rotation="0 180 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#ffffff;"
+        <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#e6e4f0;"
             position="0 2 -14" rotation="0 0 0" shadow="cast:false; receive:true;"></a-entity>
 
         <!-- 
@@ -127,20 +134,24 @@
         -->
 
         <!-- left side of room -->
-        <a-entity circles-checkpoint position="5 0 -12"></a-entity>
         <a-entity circles-checkpoint position="-1 0 -10"></a-entity>
         <a-entity circles-checkpoint position="5 0 -8"></a-entity>
         <a-entity circles-checkpoint position="-4 0 -8"></a-entity>
-        <a-entity circles-checkpoint position="0 0 -6"></a-entity>
 
-        <a-entity gltf-model="#table_rect" position="3 0 -12" rotation="0 0 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#table_rect" position="-6 0 -12" rotation="0 0 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#table_round" position="1 0 -8" rotation="0 0 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#table_round" position="3.5 0 -5" rotation="0 0 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#tableRound" position="2 0 -8" rotation="0 0 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairLounge" position="3.2 0 -7.8" rotation="0 180 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairLounge" position="2 0 -7.8" rotation="0 90 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairLounge" position="2 0 -9.5" rotation="0 0 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairLounge" position="3.2 0 -9.5" rotation="0 -90 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+
+        <a-entity gltf-model="#tableRect" position="-5 0 -11.5" rotation="0 0 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#couch" position="-6 0 -11.5" rotation="0 90 0" scale="0.15 0.15 0.15" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairLounge" position="-4 0 -10.5" rotation="0 180 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairLounge" position="-4 0 -12.5" rotation="0 -90 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        
+        <a-entity gltf-model="#tableDesk" position="5 -0.19 -12.5" rotation="0 90 0" scale="0.5 0.75 0.75" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#tableDesk" position="3.5 -0.19 -13.25" rotation="0 0 0" scale="0.5 0.75 0.75" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairOffice" position="6 0 -12.5" rotation="0 0 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
 
         <a-entity class="interactive narrative" geometry="primitive:plane; width:3; height:2;" material="color:white;"
             position="-6.9 2 -8" rotation="0 90 0" shadow="cast:false; receive:true;" circles-artefact="inspectScale:1.0 1.0 1.0;
@@ -152,30 +163,31 @@
             label_text:Whiteboard;"></a-entity>
 
         <!-- center of room -->
-        <a-entity circles-checkpoint position="0 0 1"></a-entity>
-        <a-entity circles-checkpoint position="5 0 1"></a-entity>
         <a-entity circles-checkpoint position="-5 0 0"></a-entity>
 
-        <a-entity gltf-model="#table_rect" position="5 0 0" rotation="0 90 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#table_rect" position="0 0 2" rotation="0 90 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#table_rect" position="0 0 -5" rotation="0 90 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#table_rect" position="-4.5 0 -3" rotation="0 -45 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#table_round" position="-4.5 0 -4" rotation="0 0 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#tableRect" position="0 0 2" rotation="0 90 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairOffice" position="0 0 3" rotation="0 -90 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairOffice" position="0 0 1" rotation="0 90 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
 
-        <a-entity gltf-model="#chair" position="0 0 2.5" rotation="0 180 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="0 0 -4.5" rotation="0 180 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="5 0 0.5" rotation="0 180 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="5 0 -0.5" rotation="0 0 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        
+        <a-entity gltf-model="#tableRect" position="5 0 0" rotation="0 90 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairOffice" position="4.5 0 1" rotation="0 -90 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairOffice" position="5.5 0 1" rotation="0 -90 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairOffice" position="5.5 0 -1" rotation="0 90 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairOffice" position="4.5 0 -1" rotation="0 90 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+
+        <a-entity gltf-model="#tableRect" position="0 0 -5" rotation="0 90 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairOffice" position="-0.45 0 -4" rotation="0 -90 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairOffice" position="0.5 0 -4" rotation="0 -90 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairOffice" position="0.5 0 -6" rotation="0 90 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairOffice" position="-0.45 0 -6" rotation="0 90 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
+
+        <a-entity gltf-model="#tableHigh" position="-4 0 -4.5" rotation="0 0 0" scale="0.65 0.65 0.65" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairHigh" position="-4.5 0 -3.5" rotation="0 -90 0" scale="0.5 0.5 0.5" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairHigh" position="-4.5 0 -5.5" rotation="0 90 0" scale="0.5 0.5 0.5" shadow="cast:true; receive:false;"></a-entity>
+
+        <a-entity gltf-model="#tableHigh" position="4.5 0 -4.5" rotation="0 0 0" scale="0.65 0.65 0.65" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairHigh" position="4.5 0 -3.5" rotation="0 -90 0" scale="0.5 0.5 0.5" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chairHigh" position="4.5 0 -5.5" rotation="0 90 0" scale="0.5 0.5 0.5" shadow="cast:true; receive:false;"></a-entity>
 
         <a-entity id="Artifact-Clipboard" class="interactive narrative" position="-0.5 0.82 2" rotation="-90 15 0.0"
             scale="1 1 1" gltf-model="#Clipboard-gltf" shadow="receive:false; cast:false;"
@@ -217,8 +229,7 @@
                         description_back:This item has a code or cipher on it;
                         label_text:Clipboard;"></a-entity>
 
-
-            <a-entity id="Artifact-Clock" class="interactive narrative" gltf-model="#clock" position="0 1 0" rotation="0 0 0"
+            <a-entity id="Artifact-Clock" class="interactive narrative" gltf-model="#clock" position="5 0.85 0" rotation="0 0 0"
             scale="1 1 1" shadow="receive:false; cast:false;"
             circles-sphere-env-map="src:/global/assets/textures/equirectangular/WhiteBlue.jpg" circles-artefact="inspectScale:1 1 1; 
                         label_offset:0 1.2 0; arrow_position:down;
@@ -228,15 +239,16 @@
                         description_back:This item has a code or cipher on it;
                         label_text:Clock;"></a-entity>
 
-    <!--
-            <a-entity gltf-model="#clock" position="0 1 0" rotation="0 0 0" scale="0.01 0.01 0.01"
-                shadow="cast:true; receive:false;"></a-entity>
-    --->
-
-        <a-entity gltf-model="#whiteboard" position="3 0 0" rotation="0 0 0" scale="40 40 40"
+        <a-entity gltf-model="#whiteboard" position="-5.5 0 -6.25" rotation="0 0 0" scale="35 35 35"
             shadow="cast:true; receive:false;"></a-entity>
 
-        <a-entity gltf-model="#whiteboardStand" position="-3 0 0" rotation="0 0 0" scale="50 50 50"
+        <a-entity gltf-model="#whiteboardStand1" position="-4.75 0 -8" rotation="0 90 0" scale="1 1 1"
+            shadow="cast:true; receive:false;"></a-entity>
+
+        <a-entity gltf-model="#whiteboardStand2" position="5.5 0 -2.8" rotation="0 0 0" scale="1 1 1"
+            shadow="cast:true; receive:false;"></a-entity>
+
+        <a-entity gltf-model="#whiteboardStand3" position="3 0 13.95" rotation="0 180 0" scale="1 1 1"
             shadow="cast:true; receive:false;"></a-entity>
 
         <a-entity id="exit_button" circles-button="pedastal_color:rgb(74, 87, 95);" open-door position="-7 1.5 4"
@@ -248,88 +260,54 @@
 
         <!-- right side of room -->
         <a-entity circles-checkpoint position="0 0 7"></a-entity>
-        <a-entity circles-checkpoint position="-4.5 0 7"></a-entity>
         <a-entity circles-checkpoint position="-4 0 12"></a-entity>
         <a-entity circles-checkpoint position="0 0 12"></a-entity>
         <a-entity circles-checkpoint position="4 0 12"></a-entity>
 
-        <a-entity gltf-model="#table_round" position="5.5 0 13" rotation="0 0 0" scale="1 1 1"
+        <a-entity gltf-model="#tableHigh" position="6 0 12" rotation="0 0 0" scale="0.65 0.65 0.65"
             shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#table_round" position="3.5 0 8" rotation="0 0 0" scale="1 1 1"
+        <a-entity gltf-model="#chairHigh" position="4.5 0 6" rotation="0 90 0" scale="0.5 0.5 0.5"
             shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#table_round" position="-4 0 8" rotation="0 0 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-
-        <a-entity id="Artifact-Clipboard" class="interactive narrative" position="-0.5 0.82 -5" rotation="-90 15 0.0"
-            scale="1 1 1" gltf-model="#Clipboard-gltf" shadow="receive:false; cast:false;"
-            circles-sphere-env-map="src:/global/assets/textures/equirectangular/WhiteBlue.jpg" circles-artefact="inspectScale:1.2 1.2 1.2; textRotationY:90;
-                        label_offset:0 0.35 0; arrow_position:down;
-                        title:Useful information; 
-                        description:This item has a code or cipher on it;
-                        title_back:More useful information;
-                        description_back:This item has a code or cipher on it;
-                        label_text:Clipboard;"></a-entity>
-
-        <a-entity class="interactive narrative" geometry="primitive:plane; width:3; height:2;" material="color:white;"
-            position="-4 2 13.9" rotation="0 180 0" shadow="cast:false; receive:true;" circles-artefact="inspectScale:1.0 1.0 1.0;
-            label_offset:0 0.35 0.35; arrow_position:down;
-            title:Useful information; 
-            description:This item has a code or cipher on it;
-            title_back:More useful information;
-            description_back:This item has a code or cipher on it;
-            label_text:Whiteboard;"></a-entity>
-
-        <a-entity class="interactive narrative" geometry="primitive:plane; width:3; height:2;" material="color:white;"
-            position="0 2 13.9" rotation="0 180 0" shadow="cast:false; receive:true;" circles-artefact="inspectScale:1.0 1.0 1.0;
-            label_offset:0 0.35 0.35; arrow_position:down;
-            title:Useful information; 
-            description:This item has a code or cipher on it;
-            title_back:More useful information;
-            description_back:This item has a code or cipher on it;
-            label_text:Whiteboard;"></a-entity>
-
-        <a-entity class="interactive narrative" geometry="primitive:plane; width:3; height:2;" material="color:white;"
-            position="4 2 13.9" rotation="0 180 0" shadow="cast:false; receive:true;" circles-artefact="inspectScale:1.0 1.0 1.0;
-            label_offset:0 0.35 0.35; arrow_position:down;
-            title:Useful information; 
-            description:This item has a code or cipher on it;
-            title_back:More useful information;
-            description_back:This item has a code or cipher on it;
-            label_text:Whiteboard;"></a-entity>
-
-        <a-entity gltf-model="#chair" position="6 0 13" rotation="0 180 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="5 0 12" rotation="0 90 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="4 0 6.5" rotation="0 0 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="4.5 0 8" rotation="0 180 0" scale="1 1 1"
+        <a-entity gltf-model="#chairHigh" position="4.5 0 8" rotation="0 -90 0" scale="0.5 0.5 0.5"
             shadow="cast:true; receive:false;"></a-entity>
 
-        <a-entity gltf-model="#chair" position="-5.5 0 8.5" rotation="0 180 0" scale="1 1 1"
+        <a-entity gltf-model="#tableHigh" position="4.5 0 7" rotation="0 0 0" scale="0.65 0.65 0.65"
             shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="-6 0 9" rotation="0 180 0" scale="1 1 1"
+        <a-entity gltf-model="#chairHigh" position="6 0 13" rotation="0 -90 0" scale="0.5 0.5 0.5"
             shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="-6 0 9.6" rotation="0 180 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="-6 0 10.2" rotation="0 180 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="-6 0 10.8" rotation="0 180 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="-6 0 11.4" rotation="0 180 0" scale="1 1 1"
-            shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="-6 0 12.0" rotation="0 180 0" scale="1 1 1"
+        <a-entity gltf-model="#chairHigh" position="5 0 12" rotation="0 180 0" scale="0.5 0.5 0.5"
             shadow="cast:true; receive:false;"></a-entity>
 
-        <a-entity gltf-model="#chair" position="-5.3 0 9.6" rotation="0 180 0" scale="1 1 1"
+        <a-entity gltf-model="#tableHigh" position="-4.5 0 7" rotation="0 0 0" scale="0.65 0.65 0.65"
             shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="-5.3 0 10.2" rotation="0 180 0" scale="1 1 1"
+        <a-entity gltf-model="#chairHigh" position="-4.5 0 8" rotation="0 -90 0" scale="0.5 0.5 0.5"
             shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="-5.3 0 10.8" rotation="0 180 0" scale="1 1 1"
+        <a-entity gltf-model="#chairHigh" position="-4.5 0 6" rotation="0 90 0" scale="0.5 0.5 0.5"
             shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="-5.3 0 11.4" rotation="0 180 0" scale="1 1 1"
+
+        <a-entity gltf-model="#chair" position="-6 0 9" rotation="0 0 0" scale="1 1 1"
             shadow="cast:true; receive:false;"></a-entity>
-        <a-entity gltf-model="#chair" position="-5.3 0 12.0" rotation="0 180 0" scale="1 1 1"
+        <a-entity gltf-model="#chair" position="-6 0 9.6" rotation="0 0 0" scale="1 1 1"
+            shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chair" position="-6 0 10.2" rotation="0 0 0" scale="1 1 1"
+            shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chair" position="-6 0 10.8" rotation="0 0 0" scale="1 1 1"
+            shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chair" position="-6 0 11.4" rotation="0 0 0" scale="1 1 1"
+            shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chair" position="-6 0 12.0" rotation="0 0 0" scale="1 1 1"
+            shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chair" position="-5.3 0 9" rotation="0 0 0" scale="1 1 1"
+            shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chair" position="-5.3 0 9.6" rotation="0 0 0" scale="1 1 1"
+            shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chair" position="-5.3 0 10.2" rotation="0 0 0" scale="1 1 1"
+            shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chair" position="-5.3 0 10.8" rotation="0 0 0" scale="1 1 1"
+            shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chair" position="-5.3 0 11.4" rotation="0 0 0" scale="1 1 1"
+            shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#chair" position="-5.3 0 12.0" rotation="0 0 0" scale="1 1 1"
             shadow="cast:true; receive:false;"></a-entity>
 
         <!-- 
