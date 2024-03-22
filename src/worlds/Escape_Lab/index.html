@@ -6,13 +6,55 @@
     <circles-start-scripts />
 
     <script src="scripts/door_interact.js" async></script>
+    <link rel="stylesheet" href="HUD.css">
+
 </head>
 
 <body>
     <!-- this is used to create our enter UI that creates a 2D overlay to capture a user gesture for sound/mic access etc. -->
     <circles-start-ui />
+
+    <!-- Tamper Button -->
+    <button id="tamper-button" style="display:none;">Tamper</button>
+
+    <!-- Puzzle Overlays -->
+    <div id="ui-overlay">
+      <!-- Clock Puzzle Interaction UI -->
+      <div id="clock-overlay">
+        <div id="hour-hand"></div>
+        <div id="minute-hand"></div>
+      </div>
+      <div id="time-display">12:00</div>
+
+      <!-- Lock Puzzle Interaction UI -->
+      <div id="lock-overlay" style="display: flex;">
+        <div class="digit-container">
+          <button class="increment">&#x25B2;</button> <!-- Up arrow -->
+          <div class="digit">9</div>
+          <button class="decrement">&#x25BC;</button> <!-- Down arrow -->
+        </div>
+        <div class="digit-container">
+          <button class="increment">&#x25B2;</button> <!-- Up arrow -->
+          <div class="digit">9</div>
+          <button class="decrement">&#x25BC;</button> <!-- Down arrow -->
+        </div>
+        <div class="digit-container">
+          <button class="increment">&#x25B2;</button> <!-- Up arrow -->
+          <div class="digit">9</div>
+          <button class="decrement">&#x25BC;</button> <!-- Down arrow -->
+        </div>
+        <div class="digit-container">
+          <button class="increment">&#x25B2;</button> <!-- Up arrow -->
+          <div class="digit">9</div>
+          <button class="decrement">&#x25BC;</button> <!-- Down arrow -->
+        </div>
+      </div>
+    </div>
+
     <!-- a-scene with 'circles-properties' component [REQUIRED] -->
     <a-scene circles_scene_properties background="color:white">
+
+
 
         <a-assets timeout="10000">
             <!-- Circles' built-in assets [REQUIRED] -->
@@ -370,25 +412,187 @@
     <!-- Circles' end scripts [REQUIRED] -->
     <circles-end-scripts />
 
+    <!-- Check Object Held -->
     <script>
-      // Define a function to check if an object is being held
-      function checkIfObjectIsHeld() {
-        // Use the provided function to get the currently held object
-        const heldObject = CIRCLES.getPickedUpElement();
+      let isTampering = false;
 
-        // Check if the result is not null (meaning an object is currently held)
-        if (heldObject !== null) {
-          // Log to the console
-          console.log("OBJECT HELD");
-          console.log(heldObject);
+      function checkIfObjectIsHeld() {
+        const heldObject = CIRCLES.getPickedUpElement();
+        const tamperButton = document.getElementById('tamper-button');
+        const uiOverlay = document.getElementById('ui-overlay');
+        const clockOverlay = document.getElementById('clock-overlay');
+        const timeDisplay = document.getElementById('time-display');
+        const lockOverlay = document.getElementById('lock-overlay');
+
+        function hideOverlays() {
+          uiOverlay.style.display = 'none';
+          clockOverlay.style.display = 'none';
+          timeDisplay.style.display = 'none';
+          lockOverlay.style.display = 'none';
+          if (!isTampering) {
+            tamperButton.style.display = 'none';
+          }
+        }
+
+        if (!isTampering) {
+          hideOverlays();
+        }
+
+        if (heldObject !== null && (heldObject.id === "Artifact-Clock" || heldObject.id === "Artifact-Clipboard") && !isTampering) {
+          tamperButton.style.display = 'block';
+          tamperButton.onclick = () => {
+            isTampering = true;
+            uiOverlay.style.display = 'block';
+            tamperButton.style.display = 'none';
+
+            if (heldObject.id === "Artifact-Clock") {
+              clockOverlay.style.display = 'block';
+              timeDisplay.style.display = 'block';
+            } else if (heldObject.id === "Artifact-Clipboard") {
+              lockOverlay.style.display = 'flex';
+            }
+          };
+        } else if (!heldObject || (heldObject.id !== "Artifact-Clock" && heldObject.id !== "Artifact-Clipboard")) {
+          isTampering = false;
+          hideOverlays();
         }
       }
 
       // Set up an interval to periodically check for a held object
-      // This example checks every 1000 milliseconds (1 second)
       setInterval(checkIfObjectIsHeld, 1000);
-
     </script>
+
+
+    <!-- Clock Code -->
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        const clockOverlay = document.getElementById('clock-overlay');
+        const rect = clockOverlay.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        function calculateTimeFromAngles(hourAngle, minuteAngle) {
+          minuteAngle -= 90;
+          hourAngle -= 3 * 30; // Each hour is 30 degrees
+
+          // Ensure angles are within 0-360 range after adjustment
+          hourAngle = (hourAngle + 360) % 360;
+          minuteAngle = (minuteAngle + 360) % 360;
+
+          // Calculate minutes
+          let minutes = Math.floor((minuteAngle / 360) * 60); // Use floor to avoid hitting 60
+
+          // Calculate hours, including the partial hour indicated by the minute hand
+          let hours = Math.floor((hourAngle / 360) * 12);
+          hours = hours % 12;
+          hours = hours === 0 ? 12 : hours; // Adjust so 0 becomes 12
+
+          // Adjust minutes to avoid displaying 60
+          if (minutes >= 60) {
+            minutes = 59; // Ensuring minutes don't display as 60
+          }
+
+          // Adjust hours and minutes for display
+          const roundedHours = hours.toString().padStart(2, '0');
+          const roundedMinutes = minutes.toString().padStart(2, '0');
+
+          // Update the time display div
+          const timeDisplay = document.getElementById('time-display');
+          timeDisplay.textContent = `${roundedHours}:${roundedMinutes}`;
+
+          // Change color if the time is 12:25 (the code)
+          if (timeDisplay.textContent === "12:25") {
+            timeDisplay.style.color = 'green';
+          } else {
+            timeDisplay.style.color = 'black';
+          }
+        }
+
+
+        function getRotationDegrees(obj) {
+          var matrix = window.getComputedStyle(obj, null).getPropertyValue('transform');
+          var angle = 0;
+          if (matrix !== 'none') {
+            var values = matrix.split('(')[1].split(')')[0].split(',');
+            var a = values[0];
+            var b = values[1];
+            angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+          }
+          return angle + 90;
+        }
+
+        function onMouseUp() {
+          const hourAngle = getRotationDegrees(document.getElementById('hour-hand'));
+          const minuteAngle = getRotationDegrees(document.getElementById('minute-hand'));
+          calculateTimeFromAngles(hourAngle, minuteAngle);
+        }
+
+        function rotateHand(handId, event) {
+          const hand = document.getElementById(handId);
+          const mouseX = event.clientX - centerX;
+          const mouseY = event.clientY - centerY;
+          const angleRad = Math.atan2(mouseY, mouseX);
+          const angleDeg = angleRad * (180 / Math.PI) + 90;
+          hand.style.transform = `rotate(${angleDeg}deg)`;
+        }
+
+        ['hour-hand', 'minute-hand'].forEach(handId => {
+          document.getElementById(handId).addEventListener('mousedown', function(event) {
+            event.preventDefault();
+            function onMouseMove(event) {
+              rotateHand(handId, event);
+            }
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', function mouseUpListener() {
+              document.removeEventListener('mousemove', onMouseMove);
+              document.removeEventListener('mouseup', mouseUpListener);
+              onMouseUp(); // Calculate and log the time
+            });
+          });
+        });
+      });
+    </script>
+
+    <!-- Lock Code -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const incrementButtons = document.querySelectorAll('.increment');
+        const decrementButtons = document.querySelectorAll('.decrement');
+
+        function updateDigitColor() {
+          const digits = document.querySelectorAll('.digit');
+          const currentCombination = Array.from(digits).map(digit => digit.textContent).join('');
+          const color = currentCombination === '1212' ? 'green' : 'black';
+
+          digits.forEach(digit => {
+            digit.style.color = color;
+          });
+        }
+
+        incrementButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const digitDiv = button.nextElementSibling;
+            let digit = parseInt(digitDiv.textContent, 10);
+            digit = (digit + 1) % 10;
+            digitDiv.textContent = digit;
+            updateDigitColor();
+          });
+        });
+
+        decrementButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const digitDiv = button.previousElementSibling;
+            let digit = parseInt(digitDiv.textContent, 10);
+            digit = (digit - 1 + 10) % 10;
+            digitDiv.textContent = digit;
+            updateDigitColor();
+          });
+        });
+
+        updateDigitColor();
+      });
+    </script>
+
 </body>
 
 </html>

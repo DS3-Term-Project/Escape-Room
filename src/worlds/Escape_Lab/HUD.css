@@ -1,0 +1,103 @@
+/* clock-style.css */
+
+#ui-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30vw; /* Width controls size of the clock */
+  height: auto; /* Height adjusts automatically */
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column; /* Organizes children vertically */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  padding: 1vw; /* Padding around the clock */
+}
+
+#clock-overlay {
+  position: relative;
+  width: 100%; /* Full width of ui-overlay */
+  padding-top: 100%; /* Padding-top for aspect ratio */
+  border-radius: 50%;
+  background-color: #FFF;
+  box-sizing: border-box;
+  margin-bottom: 2vw; /* Space between clock and time display */
+}
+
+#hour-hand, #minute-hand {
+  position: absolute;
+  background-color: black;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: 50% 100%;
+}
+
+#hour-hand {
+  width: 2%;
+  height: 25%;
+}
+
+#minute-hand {
+  width: 2%;
+  height: 35%;
+}
+
+#time-display {
+  color: #000;
+  font-size: 3vw;
+  font-family: Arial, sans-serif;
+}
+
+#lock-overlay {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.digit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+  font-family: Arial, sans-serif; /* Specify a sans-serif font */
+}
+
+.digit {
+  font-size: 2em;
+  margin: 5px 0;
+  color: black;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.5em;
+}
+
+/* Add this CSS to your existing stylesheet */
+
+/* Centering the Tamper button over the A-Frame scene */
+#tamper-button {
+  position: fixed; /* Fixed position to stay in view */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for the button's dimensions */
+  padding: 10px 20px; /* Padding inside the button */
+  font-size: 18px; /* Text size */
+  color: white; /* Text color */
+  background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent black background */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor indicates it's clickable */
+  z-index: 9999; /* Ensure it's above A-Frame content */
+}
+
+/* Optional: Add a hover effect to the button */
+#tamper-button:hover {
+  background-color: rgba(0, 0, 0, 0.85); /* Slightly darker on hover */
+}
