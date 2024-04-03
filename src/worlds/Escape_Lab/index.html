@@ -5,7 +5,7 @@
     <!-- Circles' head scripts [REQUIRED] -->
     <circles-start-scripts />
 
-
+    <script src="scripts/lock.js" async></script>
     <link rel="stylesheet" href="HUD.css">
 
 </head>
@@ -442,6 +442,7 @@
             timeDisplay.style.color = 'green';
             clockSolved = true;
             document.querySelector('#ding1').play();
+            openClock();
           } else {
             timeDisplay.style.color = 'black';
           }
@@ -512,6 +513,7 @@
           if (currentCombination === '1212') {
             lockSolved = true;
             document.querySelector('#ding2').play();
+            openCase();
           }
 
         }
