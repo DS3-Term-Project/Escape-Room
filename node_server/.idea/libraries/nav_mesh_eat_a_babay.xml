@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="nav_mesh_eat_a_babay">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/public/worlds/Rover_Repair_/assets/models/full_base_nav/nav_mesh_eat_a_babay.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
