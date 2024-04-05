@@ -101,6 +101,10 @@
         <!-- Circles' built-in manager and avatar [REQUIRED] -->
         <circles-manager-avatar />
 
+        <!--Hand tracking for VR. Not currently visible, tested on an Oculus Rift S-->
+        <a-entity id="leftHand" hand-tracking-grab-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+        <a-entity id="rightHand" hand-tracking-grab-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+
         <!--<a-entity class="ground" geometry="primitive:plane; width:28; height:28;" material="color:#8d97ff;" position="0 0.01 0" rotation="-90 0 0" shadow="cast:false; receive:true;"></a-entity>-->
         <a-entity class="ground" geometry="primitive:plane; width:22; height:28;" material="src:#floorTex; repeat:8 8" position="3.5 0.01 0" rotation="-90 0 0" shadow="cast:false; receive:true;"></a-entity>
         <a-entity class="ceiling" geometry="primitive:plane; width:22; height:28;" material="src:#roofTex; repeat:10 6" position="3.5 5 0" rotation="90 0 0" shadow="cast:false; receive:true;"></a-entity>
@@ -339,6 +343,7 @@
             </a-entity>
         </a-entity>
     -->
+
 
 
     </a-scene>
