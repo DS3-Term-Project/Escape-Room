@@ -277,12 +277,14 @@
           // Move distance and direction
           distance: {type: 'number', default: 2},
           // Whether the shelf is moving
-          moving: {type: 'boolean', default: false}
+          moving: {type: 'boolean', default: false},
+          // Whether the correct symbol is visible
+          state: {type: 'boolean', default: true}
         },
 
         // Add listener to the button
         init: function() {
-          this.btn.addEventListener('click', () => {
+          this.el.addEventListener('click', () => {
             // If in motion, do not try to move again (prevents button spam)
             if (this.data.moving) return;
             this.data.moving = true;
