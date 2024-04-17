@@ -14,6 +14,11 @@
     <!-- this is used to create our enter UI that creates a 2D overlay to capture a user gesture for sound/mic access etc. -->
     <circles-start-ui />
 
+    <!--          Custom UI elements-->
+    <a-mixin id="button" geometry="primitive: plane; width: 0.2; height: 0.1" material="color: black;"></a-mixin>
+    <a-mixin id="buttonText" text="align: center; baseline: center; color: white; width: 4;"></a-mixin>
+    <a-mixin id="digit" text="align: center; baseline: center; color: yellow; value: 9; width: 4;"></a-mixin>
+
     <!--    cursor="rayOrigin: mouse" raycaster="objects: .increment, .decrement"-->
     <!-- a-scene with 'circles-properties' component [REQUIRED] -->
     <a-scene circles_scene_properties background="color:black">
@@ -73,7 +78,7 @@
         <a-entity id="rightHand" hand-tracking-grab-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
 
 
-<!--       CLOCK -->
+    <!-- CLOCK -->
 
       <a-entity position="6.5 2.25 0" rotation="0 270 0">
         <a-plane position="0 0 -0.1" width="4" height="2" color="#000"></a-plane>
@@ -82,9 +87,9 @@
         <a-circle position="0 0 0" radius="0.5" color="white"></a-circle>
         <!-- Time Display -->
         <a-entity id="time-display" position="0 -0.75 0" text="value: 12:00; color: white; align: center; width: 4"></a-entity>
-        <!-- Hour Hand, correctly aligned for 12:00 (0 degrees upwards) -->
+        <!-- Hour Hand -->
         <a-entity id="hour-hand" rotation="0 0 0" geometry="primitive: plane; height: 0.4; width: 0.05" material="color: black"></a-entity>
-        <!-- Minute hand, correctly aligned for 12:00 (0 degrees upwards) -->
+        <!-- Minute hand -->
         <a-entity id="minute-hand" rotation="0 0 0" geometry="primitive: plane; height: 0.6; width: 0.05" material="color: grey"></a-entity>
         <!-- Buttons for adjusting time -->
         <a-entity id="add-hour" position="1.2 -0.5 0" geometry="primitive: plane; width: 1; height: 0.25" material="color: black" circles-interactive-object>
@@ -101,10 +106,9 @@
         </a-entity>
       </a-entity>
 
-      <!--       LOCK -->
-
+      <!-- LOCK -->
       <a-entity position="1 1.6 2.5" id="Lock" rotation="0 -45 0">
-        <!-- Multiple digit containers with white background -->
+        <!-- Digit containers with white backgrounds -->
         <a-plane rotation="0 180 0" position="0 0 0" width="1.8" height="0.6" color="#FFF"></a-plane>
         <a-entity position="-0.6 0 0" class="digit-container" geometry="primitive: plane; height: 0.5; width: 0.4" material="color: white">
           <a-entity class="increment" mixin="button" position="0 0.15 -0.02" circles-interactive-object>
@@ -116,7 +120,6 @@
           </a-entity>
         </a-entity>
 
-        <!-- Repeat containers with adjusted positions and consistent styling -->
         <a-entity position="-0.2 0 0" class="digit-container" geometry="primitive: plane; height: 0.5; width: 0.4" material="color: white">
           <a-entity class="increment" mixin="button" position="0 0.15 -0.02" circles-interactive-object>
             <a-text value="+" color="black" position="0 0 0.02" align="center"></a-text>
@@ -308,7 +311,7 @@
         <a-entity gltf-model="#plant" position="-6.5 0 -10" rotation="0 0 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
 
         <a-entity id="exit_button" circles-button="pedastal_color:rgb(74, 87, 95);" open-door position="-6.9 1.5 4" rotation="0 0 -90" scale="0.8 0.8 0.8"></a-entity>
-        <a-entity id="exit_door" geometry="primitive:plane; width:6; height:4;" material="color:#3a3739;" position="-7 2 0" rotation="0 90 0"></a-entity>
+        <a-entity id="exit_door" geometry="primitive:plane; width:6; height:4;" material="color:#3a3739;" position="-7 2 0" rotation="0 90 0" circles-networked-basic></a-entity>
         <a-entity id="Portal-Hub" position="-8 1.5 0" rotation="0 0 0"
             circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Collection Room; link_url:/w/Escape_Collection"></a-entity>
 
