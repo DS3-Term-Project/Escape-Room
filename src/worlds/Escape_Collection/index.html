@@ -106,7 +106,7 @@
         <!-- LEFT SHELF ROW -->
         <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-8 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
         <!-- Move shelf 1 -->
-        <a-entity class="collectionShelf" id="shelf_1" gltf-model="assets/models/shelf_obj.glb" position="-12.1 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false">
+        <a-entity circles-networked-basic class="collectionShelf" id="shelf_1" gltf-model="assets/models/shelf_obj.glb" position="-12.1 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false">
           <!--<a-entity gltf-model="#fileBox" position="0 0 0" rotation="0 90 0" scale="0.17 0.17 0.17" shadow="cast:true; receive:false;"></a-entity>-->
           <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.00554 0.08466" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
           <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.00554 0.04835" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
@@ -125,7 +125,7 @@
         <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-15.5 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-19.5 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
         <!-- Move shelf 2 -->
-        <a-entity class="collectionShelf" id="shelf_2" gltf-model="assets/models/shelf_obj.glb" position="-21.2 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity circles-networked-basic class="collectionShelf" id="shelf_2" gltf-model="assets/models/shelf_obj.glb" position="-21.2 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-25.2 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-27 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
 
@@ -164,12 +164,12 @@
 
         <a-entity class="collectionShelf" position="-8 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
         <!-- Move shelf 4 -->
-        <a-entity class="collectionShelf" id="shelf_4" position="-12.1 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity circles-networked-basic class="collectionShelf" id="shelf_4" position="-12.1 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" position="-13.8 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" position="-15.5 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" position="-19.5 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
         <!-- Move shelf 3 -->
-        <a-entity class="collectionShelf" id="shelf_3" position="-21.2 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity circles-networked-basic class="collectionShelf" id="shelf_3" position="-21.2 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" position="-25.2 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" position="-27 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
 
@@ -203,7 +203,7 @@
         <a-entity class="wall" geometry="primitive: plane; width: 14; height: 8" material="src: #wallTex" position="0 3 -14" rotation="0 180 0" shadow="cast: false"></a-entity>
 
         <a-entity id="Portal-Hub" position="0 2 -21" rotation="0 180 0"
-            circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Escape; link_url:/w/Escape_Hub"></a-entity>
+            circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Exit; link_url:/w/Escape_Hub"></a-entity>
 
         </a-entity>
 
@@ -235,7 +235,30 @@
 
       <!-- Button Puzzle Hints (First and final hints) -->
       <a-image src="assets/textures/First.png" position="9.5 2 -2.3" rotation="0 180 -5" scale="0.8 1.2 0.8" material="" geometry=""></a-image>
-      <a-image src="assets/textures/Fourth.png" position="0 2 12.99" rotation="0 180 5" scale="0.8 1.2 0.8" material="side: front" geometry=""></a-image>
+      <a-image src="assets/textures/Fourth.png" position="7.5 2 20.99" rotation="0 180 5" scale="0.8 1.2 0.8" material="side: front" geometry=""></a-image>
+
+      <!-- Shelf Puzzle -->
+      <!-- Control Buttons -->
+      <a-entity id="shelf_1_button" move-shelf="target: #shelf_1; distance: 2" circles-button="pedastal_color: rgb(74, 87, 95); button_color: rgb(255, 100, 255); button_color_hover: #782b78" position="0.5 1 13" rotation="90 180 0" scale="0.8 0.8 0.8"></a-entity>
+      <a-entity id="shelf_2_button" move-shelf="target: #shelf_2; distance: -2" circles-button="pedastal_color: rgb(74, 87, 95); button_color: rgb(255, 100, 255); button_color_hover: #782b78" position="-0.5 1 13" rotation="90 180 0" scale="0.8 0.8 0.8"></a-entity>
+      <a-entity id="shelf_3_button" move-shelf="target: #shelf_3; distance: -2" circles-button="pedastal_color: rgb(74, 87, 95); button_color: rgb(255, 100, 255); button_color_hover: #782b78" position="-0.5 1 -11" rotation="90 0 0" scale="0.8 0.8 0.8"></a-entity>
+      <a-entity id="shelf_4_button" move-shelf="target: #shelf_4; distance: 2" circles-button="pedastal_color: rgb(74, 87, 95); button_color: rgb(255, 100, 255); button_color_hover: #782b78" position="0.5 1 -11" rotation="90 0 0" scale="0.8 0.8 0.8"></a-entity>
+      <!-- Directional Instructions -->
+      <a-image src="assets/textures/Directional.png" position="0 2 12.99" rotation="0 180 0" scale="1 0.5 1" material="side: front" geometry=""></a-image>
+      <a-image src="assets/textures/Directional.png" position="0 2 -10.99" rotation="0 0 3" scale="1 0.5 1" material="side: front" geometry=""></a-image>
+      <!-- Shelf Puzzle Riddles -->
+      <a-image src="assets/textures/LRiddle.png" position="-10.49 2 -8.5" rotation="0 90 0" scale="3 2 1" material="side: front" geometry=""></a-image>
+      <a-image src="assets/textures/RRiddle.png" position="-10.49 2 10.7" rotation="0 90 0" scale="3 3 1" material="side: front" geometry=""></a-image>
+      <!-- Shelf Puzzle Symbols -->
+      <a-image src="assets/textures/atom.png" position="5.5 2 -18.99" rotation="0 0 3" scale="" material="side: front" geometry=""></a-image>
+      <a-image src="assets/textures/wateringCan.png" position="7.5 0.040 19.3" rotation="-90 180 3" scale="1 0.75 1" material="side: front" geometry=""></a-image>
+      <a-image src="assets/textures/beehive.png" position="-3.6 2 20.99" rotation="0 180 0" scale="" material="side: front" geometry=""></a-image>
+      <a-image src="assets/textures/dna.png" position="7.5 2 -18.99" rotation="0 0 30" scale="0.5 1 1" material="side: front" geometry=""></a-image>
+      <a-image src="assets/textures/water.png" position="-3.6 2 -18.99" rotation="0 0 -17" scale="0.6 1 1" material="side: front" geometry=""></a-image>
+      <a-image src="assets/textures/flask.png" position="-5.762 2 20.99" rotation="0 180 15" scale="1 1.25 1" material="side: front" geometry=""></a-image>
+      <a-image src="assets/textures/gear.png" position="5.5 2 20.99" rotation="0 180 0" scale="" material="side: front" geometry=""></a-image>
+      <a-image src="assets/textures/robot.png" position="-5.76203 2 -18.99" rotation="0 0 17" scale="" material="side: front" geometry=""></a-image>
+
 
 
     </a-scene>
@@ -244,6 +267,54 @@
     <circles-end-scripts />
 
     <script src="scripts/main.js"></script>
+
+    <script>
+      // A frame component for the buttons to store the object, direction, and whether the shelf is in motion
+      AFRAME.registerComponent('move-shelf', {
+        schema: {
+          // Shelf entity
+          target: {type: 'selector'},
+          // Move distance and direction
+          distance: {type: 'number', default: 2},
+          // Whether the shelf is moving
+          moving: {type: 'boolean', default: false}
+        },
+
+        // Add listener to the button
+        init: function() {
+          this.btn.addEventListener('click', () => {
+            // If in motion, do not try to move again (prevents button spam)
+            if (this.data.moving) return;
+            this.data.moving = true;
+
+            // Calculate new position
+            const currentPosition = this.data.target.getAttribute('position');
+            const newPosition = currentPosition.x + this.data.distance;
+
+            // Animate shelf
+            this.data.target.setAttribute('animation', {
+              // Ease the position
+              property: 'position',
+              // Only applies to X coord
+              to: {x: newPosition, y: currentPosition.y, z: currentPosition.z},
+              // 1.5 Second animation
+              dur: 1500,
+              easing: 'easeInOutQuad'
+            });
+
+            // Wait for animation to complete so people can't spam the button and break it
+            this.data.target.addEventListener('animationcomplete', () => {
+              // Invert direction
+              this.data.distance *= -1;
+              // Stop moving
+              this.data.moving = false;
+            }, {once: true});
+          });
+        }
+      });
+    </script>
+
+
 </body>
 
 </html>

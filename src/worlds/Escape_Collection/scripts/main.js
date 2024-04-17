@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+  /**
+   * Button Puzzle: Codes are hidden in both the collections room and the lab, of which players must enter
+   * */
+
   let buttonPuzzleSolved = false;
 
   // Button container element
@@ -105,4 +109,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Reset buttons to default on load
   resetButtons();
+
+  /**
+   * Shelf Puzzle: Players must move shelves around to reveal symbols such that they align with their riddle
+   * */
+
+  let shelfPuzzleSolved = false;
+
+
 });
