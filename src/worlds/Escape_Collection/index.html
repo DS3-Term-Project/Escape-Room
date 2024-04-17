@@ -105,24 +105,27 @@
 
         <!-- LEFT SHELF ROW -->
         <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-8 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
-        <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-12.1 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false">
-            <!--<a-entity gltf-model="#fileBox" position="0 0 0" rotation="0 90 0" scale="0.17 0.17 0.17" shadow="cast:true; receive:false;"></a-entity>-->
-            <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.00554 0.08466" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
-            <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.00554 0.04835" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
-            <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.00554 -0.03519" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
-            <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.04136 -0.0085" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
-            <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.08067 0.03851" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
-            <!--<a-entity gltf-model="#box" position="0 0 0" rotation="0 0 0" scale="0.17 0.17 0.17" shadow="cast:true; receive:false;"></a-entity>-->
-            <a-entity gltf-model="assets/models/box_obj.glb" position="-0.01551 0.00455 0" rotation="" scale="0.25 0.25 0.25" shadow="receive: false"></a-entity>
-            <a-entity gltf-model="assets/models/box_obj.glb" position="-0.01551 0.00455 -0.08102" rotation="" scale="0.25 0.25 0.25" shadow="receive: false"></a-entity>
-            <a-entity gltf-model="assets/models/box_obj.glb" position="-0.01551 0.04174 -0.09035" rotation="" scale="0.25 0.25 0.25" shadow="receive: false"></a-entity>
-            <a-entity gltf-model="assets/models/box_obj.glb" position="-0.01551 0.04174 -0.037" rotation="" scale="0.25 0.25 0.25" shadow="receive: false"></a-entity>
-            <a-entity gltf-model="assets/models/box_obj.glb" position="-0.01551 0.0811 -0.03054" rotation="" scale="0.25 0.25 0.25" shadow="receive: false"></a-entity>
+        <!-- Move shelf 1 -->
+        <a-entity class="collectionShelf" id="shelf_1" gltf-model="assets/models/shelf_obj.glb" position="-12.1 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false">
+          <!--<a-entity gltf-model="#fileBox" position="0 0 0" rotation="0 90 0" scale="0.17 0.17 0.17" shadow="cast:true; receive:false;"></a-entity>-->
+          <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.00554 0.08466" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
+          <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.00554 0.04835" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
+          <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.00554 -0.03519" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
+          <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.04136 -0.0085" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
+          <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.08067 0.03851" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
+          <!--<a-entity gltf-model="#box" position="0 0 0" rotation="0 0 0" scale="0.17 0.17 0.17" shadow="cast:true; receive:false;"></a-entity>-->
+          <a-entity gltf-model="assets/models/box_obj.glb" position="-0.01551 0.00455 0" rotation="" scale="0.25 0.25 0.25" shadow="receive: false"></a-entity>
+          <a-entity gltf-model="assets/models/box_obj.glb" position="-0.01551 0.00455 -0.08102" rotation="" scale="0.25 0.25 0.25" shadow="receive: false"></a-entity>
+          <a-entity gltf-model="assets/models/box_obj.glb" position="-0.01551 0.04174 -0.09035" rotation="" scale="0.25 0.25 0.25" shadow="receive: false"></a-entity>
+          <a-entity gltf-model="assets/models/box_obj.glb" position="-0.01551 0.04174 -0.037" rotation="" scale="0.25 0.25 0.25" shadow="receive: false"></a-entity>
+          <a-entity gltf-model="assets/models/box_obj.glb" position="-0.01551 0.0811 -0.03054" rotation="" scale="0.25 0.25 0.25" shadow="receive: false"></a-entity>
         </a-entity>
+
         <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-13.8 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-15.5 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-19.5 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
-        <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-21.2 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
+        <!-- Move shelf 2 -->
+        <a-entity class="collectionShelf" id="shelf_2" gltf-model="assets/models/shelf_obj.glb" position="-21.2 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-25.2 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-27 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
 
@@ -160,11 +163,13 @@
         <!-- RIGHT SHELF ROW -->
 
         <a-entity class="collectionShelf" position="-8 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
-        <a-entity class="collectionShelf" position="-12.1 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+        <!-- Move shelf 4 -->
+        <a-entity class="collectionShelf" id="shelf_4" position="-12.1 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" position="-13.8 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" position="-15.5 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" position="-19.5 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
-        <a-entity class="collectionShelf" position="-21.2 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+        <!-- Move shelf 3 -->
+        <a-entity class="collectionShelf" id="shelf_3" position="-21.2 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" position="-25.2 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" position="-27 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
 
@@ -206,7 +211,7 @@
         <a-entity light="type: ambient; color: white; intensity:2.5"></a-entity>
 
       <!-- Button Puzzle Container -->
-      <a-entity id="buttonGrid" position="30 0 0" rotation="0 90 0"> <!-- Reset rotation to align grid properly -->
+      <a-entity id="buttonGrid" position="10.5 1.5 -3.6" rotation="0 270 0"> <!-- Reset rotation to align grid properly -->
         <!-- Individual Buttons arranged in 3x3 grid -->
         <a-entity id="puzzleButton_1" circles-button="pedastal_color:rgb(74, 87, 95);button_color:rgb(255, 0, 0);" position="-1 1 0"
                   rotation="90 0 0" scale="0.8 0.8 0.8"></a-entity>
@@ -227,6 +232,10 @@
         <a-entity id="puzzleButton_9" circles-button="pedastal_color:rgb(74, 87, 95);button_color:rgb(255, 0, 0);" position="1 -1 0"
                   rotation="90 0 0" scale="0.8 0.8 0.8"></a-entity>
       </a-entity>
+
+      <!-- Button Puzzle Hints (First and final hints) -->
+      <a-image src="assets/textures/First.png" position="9.5 2 -2.3" rotation="0 180 -5" scale="0.8 1.2 0.8" material="" geometry=""></a-image>
+      <a-image src="assets/textures/Fourth.png" position="0 2 12.99" rotation="0 180 5" scale="0.8 1.2 0.8" material="side: front" geometry=""></a-image>
 
 
     </a-scene>
