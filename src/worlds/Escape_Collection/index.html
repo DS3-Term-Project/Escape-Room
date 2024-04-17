@@ -42,8 +42,8 @@
         <!-- Circles' built-in manager and avatar [REQUIRED] -->
         <circles-manager-avatar />
 
-        
-        <!-- 
+
+        <!--
             *************************************
             ****** COLLECTION ROOM SECTION ******
             *************************************
@@ -51,12 +51,12 @@
 
 
         <a-entity position="17.5 0 10">
-            
+
         <a-entity circles-checkpoint circles-spawnpoint position="-8 0 0"></a-entity>
 
         <a-entity class="ground" geometry="primitive: plane; width: 21; height: 42" material="src: #floorTex2; repeat: 8 8" position="-17.5 0.01 -10" rotation="-90 0 0" shadow="cast: false"></a-entity>
         <a-entity class="ceiling" geometry="primitive: plane; width: 21; height: 42" material="src: #floorTex2; repeat: 8 8" position="-17.5 5 -10" rotation="90 0 0" shadow="cast: false"></a-entity>
-        
+
         <a-entity class="wall" geometry="primitive: plane; width: 26; height: 8" material="src: #wallTex; side: double" position="-7 3 -2" rotation="0 90 0" shadow="cast: false"></a-entity>
         <a-entity id="exit_door" geometry="primitive:plane; width:6; height:4;" material="color:#3a3739; side: double" position="-7.01 2 0" rotation="0 90 0"></a-entity>
 
@@ -184,7 +184,7 @@
 
         <a-entity id="exit_door-2" geometry="primitive: plane; width: 6; height: 4" material="color: #3a3739" position="-7 2 -18" rotation="0 -90 0"></a-entity>
 
-        <!-- 
+        <!--
             ***********************
             ****** EXIT ROOM ******
             ***********************
@@ -199,16 +199,42 @@
 
         <a-entity id="Portal-Hub" position="0 2 -21" rotation="0 180 0"
             circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Escape; link_url:/w/Escape_Hub"></a-entity>
-        
+
         </a-entity>
 
         <!-- lights -->
         <a-entity light="type: ambient; color: white; intensity:2.5"></a-entity>
 
+      <!-- Button Puzzle Container -->
+      <a-entity id="buttonGrid" position="30 0 0" rotation="0 90 0"> <!-- Reset rotation to align grid properly -->
+        <!-- Individual Buttons arranged in 3x3 grid -->
+        <a-entity id="puzzleButton_1" circles-button="pedastal_color:rgb(74, 87, 95);button_color:rgb(255, 0, 0);" position="-1 1 0"
+                  rotation="90 0 0" scale="0.8 0.8 0.8"></a-entity>
+        <a-entity id="puzzleButton_2" circles-button="pedastal_color:rgb(74, 87, 95);button_color:rgb(255, 0, 0);" position="0 1 0"
+                  rotation="90 0 0" scale="0.8 0.8 0.8"></a-entity>
+        <a-entity id="puzzleButton_3" circles-button="pedastal_color:rgb(74, 87, 95);button_color:rgb(255, 0, 0);" position="1 1 0"
+                  rotation="90 0 0" scale="0.8 0.8 0.8"></a-entity>
+        <a-entity id="puzzleButton_4" circles-button="pedastal_color:rgb(74, 87, 95);button_color:rgb(255, 0, 0);" position="-1 0 0"
+                  rotation="90 0 0" scale="0.8 0.8 0.8"></a-entity>
+        <a-entity id="puzzleButton_5" circles-button="pedastal_color:rgb(74, 87, 95);button_color:rgb(255, 0, 0);" position="0 0 0"
+                  rotation="90 0 0" scale="0.8 0.8 0.8"></a-entity>
+        <a-entity id="puzzleButton_6" circles-button="pedastal_color:rgb(74, 87, 95);button_color:rgb(255, 0, 0);" position="1 0 0"
+                  rotation="90 0 0" scale="0.8 0.8 0.8"></a-entity>
+        <a-entity id="puzzleButton_7" circles-button="pedastal_color:rgb(74, 87, 95);button_color:rgb(255, 0, 0);" position="-1 -1 0"
+                  rotation="90 0 0" scale="0.8 0.8 0.8"></a-entity>
+        <a-entity id="puzzleButton_8" circles-button="pedastal_color:rgb(74, 87, 95);button_color:rgb(255, 0, 0);" position="0 -1 0"
+                  rotation="90 0 0" scale="0.8 0.8 0.8"></a-entity>
+        <a-entity id="puzzleButton_9" circles-button="pedastal_color:rgb(74, 87, 95);button_color:rgb(255, 0, 0);" position="1 -1 0"
+                  rotation="90 0 0" scale="0.8 0.8 0.8"></a-entity>
+      </a-entity>
+
+
     </a-scene>
 
     <!-- Circles' end scripts [REQUIRED] -->
     <circles-end-scripts />
+
+    <script src="scripts/main.js"></script>
 </body>
 
 </html>
