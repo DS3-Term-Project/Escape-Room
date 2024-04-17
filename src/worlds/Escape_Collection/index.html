@@ -13,161 +13,197 @@
     <!-- a-scene with 'circles-properties' component [REQUIRED] -->
     <a-scene circles_scene_properties background="color:black">
 
-        <a-assets>
+        <a-assets timeout="30000">
             <!-- Circles' built-in assets [REQUIRED] -->
             <circles-assets />
 
-            
+            <audio id="ding1" crossorigin="anonymous" preload="auto" src="assets/audio/ding1.mp3"></audio>
+            <audio id="ding2" crossorigin="anonymous" preload="auto" src="assets/audio/ding2.mp3"></audio>
+            <audio id="garage" crossorigin="anonymous" preload="auto" src="assets/audio/garagedoor2.mp3"></audio>
+
+            <img id="wallTex" src="assets/textures/wall_tex.jpg" response-type="arraybuffer" crossorigin="anonymous"></img>
+            <img id="floorTex2" src="assets/textures/floor_tex_2.jpg" response-type="arraybuffer" crossorigin="anonymous"></img>
+            <img id="floorTex3" src="assets/textures/floor_tex_3.jpg" response-type="arraybuffer" crossorigin="anonymous"></img>
+
+            <a-asset-item id="lem" src="assets/models/lem_obj.glb" response-type="arraybuffer"crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="sewingMachine" src="assets/models/sewingMachine_obj.glb" response-type="arraybuffer"crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="shelf" src="assets/models/shelf_obj.glb" response-type="arraybuffer"crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="fileBox" src="assets/models/fileBox_obj.glb" response-type="arraybuffer"crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="box" src="assets/models/box_obj.glb" response-type="arraybuffer"crossorigin="anonymous"></a-asset-item>
+
+            <a-asset-item id="lightbulbSocket" src="assets/models/lightbulbSocket_obj.glb" response-type="arraybuffer"crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="lightbulbYellow" src="assets/models/yellowLightbulb_obj.glb" response-type="arraybuffer"crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="lightbulbRed" src="assets/models/redLightbulb_obj.glb" response-type="arraybuffer"crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="lightbulbGreen" src="assets/models/greenLightbulb_obj.glb" response-type="arraybuffer"crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="lightbulbBlue" src="assets/models/blueLightbulb_obj.glb" response-type="arraybuffer"crossorigin="anonymous"></a-asset-item>
 
         </a-assets>
 
         <!-- Circles' built-in manager and avatar [REQUIRED] -->
         <circles-manager-avatar />
 
-        <a-entity class="ground" geometry="primitive:plane; width:28; height:28;" material="color:#cac5bf;"
-            position="0 0.01 0" rotation="-90 0 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="ceiling" geometry="primitive:plane; width:28; height:28;" material="color:#cac5bf;"
-            position="0 3.99 0" rotation="90 0 0" shadow="cast:false; receive:true;"></a-entity>
-
-        <!--top wall-->
-        <!--
-        <a-entity class="wall" geometry="primitive:plane; width:28; height:4;" material="color:#f7f7f7;" position="7 2 0"
-            rotation="0 -90 0" shadow="cast:false; receive:true;"></a-entity>
+        
+        <!-- 
+            *************************************
+            ****** COLLECTION ROOM SECTION ******
+            *************************************
         -->
-        <!--bottom walls-->
+
+
+        <a-entity position="17.5 0 10">
+            
+        <a-entity circles-checkpoint circles-spawnpoint position="-8 0 0"></a-entity>
+
+        <a-entity class="ground" geometry="primitive: plane; width: 21; height: 42" material="src: #floorTex2; repeat: 8 8" position="-17.5 0.01 -10" rotation="-90 0 0" shadow="cast: false"></a-entity>
+        <a-entity class="ceiling" geometry="primitive: plane; width: 21; height: 42" material="src: #floorTex2; repeat: 8 8" position="-17.5 5 -10" rotation="90 0 0" shadow="cast: false"></a-entity>
         
-        <a-entity class="wall" geometry="primitive:plane; width:8; height:4;" material="color:#f7f7f7;" position="-7 2 7"
-            rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:8; height:4;" material="color:#f7f7f7;"
-            position="-7 2 -7" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:7; height:4;" material="color:#f7f7f7;"
-            position="-7 2 14" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:7; height:4;" material="color:#f7f7f7;"
-            position="-7 2 -14" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
-        
+        <a-entity class="wall" geometry="primitive: plane; width: 26; height: 8" material="src: #wallTex; side: double" position="-7 3 -2" rotation="0 90 0" shadow="cast: false"></a-entity>
+        <a-entity id="exit_door" geometry="primitive:plane; width:6; height:4;" material="color:#3a3739; side: double" position="-7.01 2 0" rotation="0 90 0"></a-entity>
 
-        <a-entity class="wall" geometry="primitive: plane; width: 28; height: 4" material="color: #f7f7f7" position="7 2 -6" rotation="0 -90 0" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #f7f7f7" position="7 2 15.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #f7f7f7" position="10.5 2 8" rotation="" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #f7f7f7" position="10.5 2 12" rotation="0 180 0" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 7; height: 4" material="color: #f7f7f7" position="14 2 10.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
-        
-        <a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -9" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="5.5 2 -8" rotation="0 -90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -7" rotation="" shadow="cast: false"></a-entity>
-        </a-entity>
-        <a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="5.5 2 -4.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
-        </a-entity>
-        <a-entity position="0 0 11.5">
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="5.5 2 -4.5" rotation="0 -90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
-        </a-entity>
-        <a-entity position="-12.5 0 11.5">
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="7.5 2 -4.5" rotation="0 90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 21; height: 8" material="src: #wallTex" position="-17.5 3 11" rotation="0 180 0" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 21; height: 8" material="src: #wallTex" position="-17.5 3 -29" rotation="" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 42; height: 8" material="src: #wallTex" position="-28 3 -10" rotation="0 90 0" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 10; height: 8" material="src: #wallTex; side: double" position="-7 3 -26" rotation="0 -90 0" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive:plane; width:6; height:4;" material="src:#wallTex; side:double;" position="-6.99 6 -18" rotation="0 -90 0" shadow="cast:false; receive:true;"></a-entity>
+
+        <a-entity class="column" position="-17.5 0 -10">
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="0 3 -1" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="0 3 1" rotation="0 0 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="1 3 0" rotation="0 90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="-1 3 0" rotation="0 -90 0" shadow="cast: false"></a-entity>
         </a-entity>
 
-        <a-entity position="-12.5 0 0">
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -9" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="7.5 2 -8" rotation="0 90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -7" rotation="" shadow="cast: false"></a-entity>
-        </a-entity>
-        <a-entity position="-12.5 0 0">
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -5.5" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="7.5 2 -4.5" rotation="0 90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 4" material="color: #f7f7f7" position="6.5 2 -3.5" rotation="" shadow="cast: false"></a-entity>
+        <a-entity class="column" position="-17.5 0 4">
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="0 3 -1" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="0 3 1" rotation="" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="1 3 0" rotation="0 90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="-1 3 0" rotation="0 -90 0" shadow="cast: false"></a-entity>
         </a-entity>
 
-
-        <a-entity id="door" position="13.9 1.5 10" rotation="0 -90 0">
-            <a-entity geometry="primitive:plane; width:2; height:3;" material="color:#d2a26d;"
-                shadow="cast:false; receive:true;"></a-entity>
-            <a-entity id="Portal-Hub" rotation="0 -90 0"
-                circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Hub; link_url:/w/Escape_Hub"></a-entity>
-            <a-entity circles-checkpoint circles-spawnpoint position="0 -1.5 1.5"></a-entity>        
+        <a-entity class="column" position="-17.5 0 -22">
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="0 3 -1" rotation="0 180 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="0 3 1" rotation="" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="1 3 0" rotation="0 90 0" shadow="cast: false"></a-entity>
+            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="-1 3 0" rotation="0 -90 0" shadow="cast: false"></a-entity>
         </a-entity>
 
-        <!--side walls-->
-        <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#f7f7f7;"
-            position="0 2 14" rotation="0 180 0" shadow="cast:false; receive:true;"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:14; height:4;" material="color:#f7f7f7;"
-            position="0 2 -14" rotation="0 0 0" shadow="cast:false; receive:true;"></a-entity>
+        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 4" rotation="-90 0 0"></a-entity>
+        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 6" rotation="-90 0 0"></a-entity>
+        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 8" rotation="-90 0 0"></a-entity>
+        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 10" rotation="-90 0 0"></a-entity>
+        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -4" rotation="-90 0 0"></a-entity>
+        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -6" rotation="-90 0 0"></a-entity>
+        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -8" rotation="-90 0 0"></a-entity>
+        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -10" rotation="-90 0 0"></a-entity>
+        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -12" rotation="-90 0 0"></a-entity>
+        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -14" rotation="-90 0 0"></a-entity>
+        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -22" rotation="-90 0 0"></a-entity>
+        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -24" rotation="-90 0 0"></a-entity>
+        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -26" rotation="-90 0 0"></a-entity>
+        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -28" rotation="-90 0 0"></a-entity>
+
+
+        <!-- LEFT SHELF ROW -->
+        <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-8 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-12.1 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false">
+            <!--<a-entity gltf-model="#fileBox" position="0 0 0" rotation="0 90 0" scale="0.17 0.17 0.17" shadow="cast:true; receive:false;"></a-entity>-->
+            <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.00554 0.08466" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
+            <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.00554 0.04835" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
+            <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.00554 -0.03519" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
+            <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.04136 -0.0085" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
+            <a-entity gltf-model="assets/models/fileBox_obj.glb" position="-0.02217 0.08067 0.03851" rotation="" scale="0.17 0.17 0.17" shadow="receive: false"></a-entity>
+            <!--<a-entity gltf-model="#box" position="0 0 0" rotation="0 0 0" scale="0.17 0.17 0.17" shadow="cast:true; receive:false;"></a-entity>-->
+            <a-entity gltf-model="assets/models/box_obj.glb" position="-0.01551 0.00455 0" rotation="" scale="0.25 0.25 0.25" shadow="receive: false"></a-entity>
+            <a-entity gltf-model="assets/models/box_obj.glb" position="-0.01551 0.00455 -0.08102" rotation="" scale="0.25 0.25 0.25" shadow="receive: false"></a-entity>
+            <a-entity gltf-model="assets/models/box_obj.glb" position="-0.01551 0.04174 -0.09035" rotation="" scale="0.25 0.25 0.25" shadow="receive: false"></a-entity>
+            <a-entity gltf-model="assets/models/box_obj.glb" position="-0.01551 0.04174 -0.037" rotation="" scale="0.25 0.25 0.25" shadow="receive: false"></a-entity>
+            <a-entity gltf-model="assets/models/box_obj.glb" position="-0.01551 0.0811 -0.03054" rotation="" scale="0.25 0.25 0.25" shadow="receive: false"></a-entity>
+        </a-entity>
+        <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-13.8 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-15.5 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-19.5 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-21.2 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-25.2 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity class="collectionShelf" gltf-model="assets/models/shelf_obj.glb" position="-27 0 7" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
+
+        <!-- MIDDLE SHELF ROW -->
+        <a-entity class="collectionShelf" position="-8 0 -9" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity class="collectionShelf" position="-12.1 0 -9">
+            <a-entity gltf-model="assets/models/shelf_obj.glb" position="0 0 3.25" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+            <a-entity gltf-model="assets/models/shelf_obj.glb" position="0 0 -3.25" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
+        </a-entity>
+        <a-entity class="collectionShelf" position="-13.8 0 -9">
+            <a-entity gltf-model="assets/models/shelf_obj.glb" position="0 0 3.25" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+            <a-entity gltf-model="assets/models/shelf_obj.glb" position="0 0 -3.25" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
+        </a-entity>
+        <a-entity class="collectionShelf" position="-15.5 0 -9">
+            <a-entity gltf-model="assets/models/shelf_obj.glb" position="0 0 3.25" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+            <a-entity gltf-model="assets/models/shelf_obj.glb" position="0 0 -3.25" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
+        </a-entity>
+        <a-entity class="collectionShelf" position="-19.5 0 -9">
+            <a-entity gltf-model="assets/models/shelf_obj.glb" position="0 0 3.25" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+            <a-entity gltf-model="assets/models/shelf_obj.glb" position="0 0 -3.25" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
+        </a-entity>
+        <a-entity class="collectionShelf" position="-21.2 0 -9">
+            <a-entity gltf-model="assets/models/shelf_obj.glb" position="0 0 3.25" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+            <a-entity gltf-model="assets/models/shelf_obj.glb" position="0 0 -3.25" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
+        </a-entity>
+        <a-entity class="collectionShelf" position="-25.2 0 -9">
+            <a-entity gltf-model="assets/models/shelf_obj.glb" position="0 0 3.25" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+            <a-entity gltf-model="assets/models/shelf_obj.glb" position="0 0 -3.25" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
+        </a-entity>
+        <a-entity class="collectionShelf" position="-27 0 -9">
+            <a-entity gltf-model="assets/models/shelf_obj.glb" position="0 0 3.25" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+            <a-entity gltf-model="assets/models/shelf_obj.glb" position="0 0 -3.25" rotation="0 180 0" scale="30 30 30" shadow="receive: false"></a-entity>
+        </a-entity>
+
+        <!-- RIGHT SHELF ROW -->
+
+        <a-entity class="collectionShelf" position="-8 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity class="collectionShelf" position="-12.1 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity class="collectionShelf" position="-13.8 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity class="collectionShelf" position="-15.5 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity class="collectionShelf" position="-19.5 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity class="collectionShelf" position="-21.2 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity class="collectionShelf" position="-25.2 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+        <a-entity class="collectionShelf" position="-27 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+
+        <!-- CLUTTER -->
+
+        <a-entity gltf-model="#lem" position="-17.5 0 -10" rotation="0 0 0" scale="5 5 5" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#sewingMachine" position="-17.5 0 -12" rotation="0 0 0" scale="5 5 5" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#fileBox" position="-17.5 0 -16" rotation="0 0 0" scale="5 5 5" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#door" position="-17.5 0 -18" rotation="0 0 0" scale="2.5 2.5 2.5" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#box" position="-17.5 0 -20" rotation="0 0 0" scale="5 5 5" shadow="cast:true; receive:false;"></a-entity>
+
+        <a-entity gltf-model="#lightbulbSocket" position="-17.5 0 -8" rotation="0 0 0" scale="5 5 5" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#lightbulbYellow" position="-17.5 0 -7" rotation="0 0 0" scale="5 5 5" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#lightbulbRed" position="-17.5 0 -6" rotation="0 0 0" scale="5 5 5" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#lightbulbGreen" position="-17.5 0 -5" rotation="0 0 0" scale="5 5 5" shadow="cast:true; receive:false;"></a-entity>
+        <a-entity gltf-model="#lightbulbBlue" position="-17.5 0 -4" rotation="0 0 0" scale="5 5 5" shadow="cast:true; receive:false;"></a-entity>
+
+        <a-entity id="exit_door-2" geometry="primitive: plane; width: 6; height: 4" material="color: #3a3739" position="-7 2 -18" rotation="0 -90 0"></a-entity>
 
         <!-- 
-            top wall of room x=7
-            bottom wall of room x=-7
-            left wall of room z=-14
-            right wall of room z=14
+            ***********************
+            ****** EXIT ROOM ******
+            ***********************
         -->
 
-        <!-- left side of room -->
-        <a-entity circles-checkpoint position="5 0 -12"></a-entity>
-        <a-entity circles-checkpoint position="-1 0 -10"></a-entity>
-        <a-entity circles-checkpoint position="5 0 -8"></a-entity>
-        <a-entity circles-checkpoint position="-4 0 -8"></a-entity>
-        <a-entity circles-checkpoint position="0 0 -6"></a-entity>
+        <a-entity class="ground" geometry="primitive: plane; width: 14; height: 14" material="src: #floorTex3" position="0 0.01 -21" rotation="-90 0 0" shadow="cast: false"></a-entity>
+        <a-entity class="ceiling" geometry="primitive: plane; width: 14; height: 14" material="src: #floorTex2" position="0 5 -21" rotation="90 0 0" shadow="cast: false"></a-entity>
 
+        <a-entity class="wall" geometry="primitive: plane; width: 14; height: 8" material="src: #wallTex" position="0 3 -28" rotation="" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 14; height: 8" material="src: #wallTex" position="7 3 -21" rotation="0 -90 0" shadow="cast: false"></a-entity>
+        <a-entity class="wall" geometry="primitive: plane; width: 14; height: 8" material="src: #wallTex" position="0 3 -14" rotation="0 180 0" shadow="cast: false"></a-entity>
 
-
-        <!-- center of room -->
-        <a-entity circles-checkpoint position="0 0 1"></a-entity>
-        <a-entity circles-checkpoint position="5 0 1"></a-entity>
-        <a-entity circles-checkpoint position="-5 0 0"></a-entity>
-
-
-
-        <a-entity id="exit_button" circles-button="pedastal_color:rgb(74, 87, 95);" open-door position="-7 1.5 4"
-            rotation="0 0 -90" scale="0.8 0.8 0.8"></a-entity>
-        <a-entity id="exit_door" geometry="primitive:plane; width:6; height:4;" material="color:#3a3739;"
-            position="-7 2 0" rotation="0 90 0"></a-entity>
-        <a-entity id="Portal-Hub" position="-8 2 0" rotation="0 0 0"
+        <a-entity id="Portal-Hub" position="0 2 -21" rotation="0 180 0"
             circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Escape; link_url:/w/Escape_Hub"></a-entity>
-
-        <!-- right side of room -->
-        <a-entity circles-checkpoint position="0 0 7"></a-entity>
-        <a-entity circles-checkpoint position="-4.5 0 7"></a-entity>
-        <a-entity circles-checkpoint position="-4 0 12"></a-entity>
-        <a-entity circles-checkpoint position="0 0 12"></a-entity>
-        <a-entity circles-checkpoint position="4 0 12"></a-entity>
-
-
-
-        <!-- 
-            top is x=7
-            bottom is x=-7
-            left is z=-14
-            right is z=14
-        -->
-
-        <!--
-        <a-entity id="door" position="6.99 1.5 10" rotation="0 -90 0">
-            <a-entity geometry="primitive:plane; width:2; height:3;" material="color:#d2a26d;"
-                shadow="cast:false; receive:true;"></a-entity>
-            <a-entity id="Portal-Hub" rotation="0 -90 0"
-                circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Hub; link_url:/w/Escape_Hub"></a-entity>
-            <a-entity circles-checkpoint circles-spawnpoint position="0 -1.5 1.5"></a-entity>
+        
         </a-entity>
-        -->
 
         <!-- lights -->
-        <a-entity light="type: ambient; color: white; intensity:2.0"></a-entity>
-
-        <!--telepresence robot-->
-        <a-entity id="helper" position="0 0 4" rotation="0 0 0">
-            <a-entity geometry="primitive: cone; height: 0.15; radiusBottom: 0.2; radiusTop: 0.15" material="color:#778899" position="0 0.2 -0.15" rotation="90 0 0"></a-entity>
-            <a-entity geometry="primitive: cone; height: 0.15; radiusBottom: 0.2; radiusTop: 0.15" material="color:#778899" position="0 0.2 0.15" rotation="-90 0 0"></a-entity>
-            <a-entity geometry="primitive: cylinder; height: 0.15; radius: 0.15" material="color:#2F4F4F" position="0 0.2 0" rotation="-90 0 0"></a-entity>
-            <a-entity geometry="primitive: cylinder; height: 1.5; radius: 0.03" material="color:#778899" position="0 0.8 0" rotation="0 0 0"></a-entity>
-            <a-entity geometry="primitive: box; width: 0.1; height: 0.4; depth: 0.3" material="color:#2F4F4F" position="0 1.5 0" rotation="0 0 0">
-                <a-entity geometry="primitive:plane; width:0.2; height:0.3;" material="src:#" position="0.051 0 0" rotation="0 90 0"></a-entity>
-            </a-entity>
-        </a-entity>
+        <a-entity light="type: ambient; color: white; intensity:2.5"></a-entity>
 
     </a-scene>
 

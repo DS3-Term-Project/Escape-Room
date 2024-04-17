@@ -54,7 +54,7 @@
     <!-- a-scene with 'circles-properties' component [REQUIRED] -->
     <a-scene circles_scene_properties background="color:black">
 
-        <a-assets timeout="10000">
+        <a-assets timeout="30000">
             <!-- Circles' built-in assets [REQUIRED] -->
             <circles-assets />
 
@@ -65,8 +65,6 @@
             <audio id="garage" crossorigin="anonymous" preload="auto" src="assets/audio/garagedoor2.mp3"></audio>
 
             <img id="floorTex" src="assets/textures/floor_tex.jpg" response-type="arraybuffer" crossorigin="anonymous"></img>
-            <img id="floorTex2" src="assets/textures/floor_tex_2.jpg" response-type="arraybuffer" crossorigin="anonymous"></img>
-            <img id="floorTex3" src="assets/textures/floor_tex_3.jpg" response-type="arraybuffer" crossorigin="anonymous"></img>
             <img id="wallTex" src="assets/textures/wall_tex.jpg" response-type="arraybuffer" crossorigin="anonymous"></img>
             <img id="roofTex" src="assets/textures/roof_tex.jpg" response-type="arraybuffer" crossorigin="anonymous"></img>
 
@@ -97,6 +95,9 @@
 
             <a-asset-item id="briefcase" src="assets/models/briefcase_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
             <a-asset-item id="briefcaseOpen" src="assets/models/briefcaseOpen_obj.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+
+            <a-asset-item id="door" src="assets/models/door_obj.glb" response-type="arraybuffer"crossorigin="anonymous"></a-asset-item>
+
 
         </a-assets>
 
@@ -268,6 +269,9 @@
 
         <a-entity id="exit_button" circles-button="pedastal_color:rgb(74, 87, 95);" open-door position="-6.9 1.5 4" rotation="0 0 -90" scale="0.8 0.8 0.8"></a-entity>
         <a-entity id="exit_door" geometry="primitive:plane; width:6; height:4;" material="color:#3a3739;" position="-7 2 0" rotation="0 90 0"></a-entity>
+        <a-entity id="Portal-Hub" position="-8 1.5 0" rotation="0 0 0"
+            circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Collection Room; link_url:/w/Escape_Collection"></a-entity>
+
 
         <!-- right side of room -->
         <a-entity circles-checkpoint position="0 0 7"></a-entity>
@@ -304,77 +308,8 @@
         <a-entity gltf-model="#chair" position="-5.3 0 11.4" rotation="0 0 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
         <a-entity gltf-model="#chair" position="-5.3 0 12.0" rotation="0 0 0" scale="1 1 1" shadow="cast:true; receive:false;"></a-entity>
 
-        <!-- 
-            *************************************
-            ****** COLLECTION ROOM SECTION ******
-            *************************************
-        -->
-
-        <a-entity class="ground" geometry="primitive: plane; width: 21; height: 42" material="src: #floorTex2; repeat: 8 8" position="-17.5 0.01 -10" rotation="-90 0 0" shadow="cast: false"></a-entity>
-        <a-entity class="ceiling" geometry="primitive: plane; width: 21; height: 42" material="src: #floorTex2; repeat: 8 8" position="-17.5 5 -10" rotation="90 0 0" shadow="cast: false"></a-entity>
-        
-        <a-entity class="wall" geometry="primitive: plane; width: 21; height: 8" material="src: #wallTex" position="-17.5 3 11" rotation="0 180 0" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 21; height: 8" material="src: #wallTex" position="-17.5 3 -31" rotation="" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 42; height: 8" material="src: #wallTex" position="-28 3 -10" rotation="0 90 0" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 10; height: 8" material="src: #wallTex; side: double" position="-7 3 -26" rotation="0 -90 0" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive:plane; width:6; height:4;" material="src:#wallTex; side:double;" position="-6.99 6 -18" rotation="0 -90 0" shadow="cast:false; receive:true;"></a-entity>
-
-        <a-entity class="column" position="-17.5 0 -10">
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="0 3 -1" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="0 3 1" rotation="0 0 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="1 3 0" rotation="0 90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="-1 3 0" rotation="0 -90 0" shadow="cast: false"></a-entity>
-        </a-entity>
-
-        <a-entity class="column" position="-17.5 0 4">
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="0 3 -1" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="0 3 1" rotation="" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="1 3 0" rotation="0 90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="-1 3 0" rotation="0 -90 0" shadow="cast: false"></a-entity>
-        </a-entity>
-
-        <a-entity class="column" position="-17.5 0 -22">
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="0 3 -1" rotation="0 180 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="0 3 1" rotation="" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="1 3 0" rotation="0 90 0" shadow="cast: false"></a-entity>
-            <a-entity class="wall" geometry="primitive: plane; width: 2; height: 8" material="src: #wallTex" position="-1 3 0" rotation="0 -90 0" shadow="cast: false"></a-entity>
-        </a-entity>
-
-        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 4" rotation="-90 0 0"></a-entity>
-        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 6" rotation="-90 0 0"></a-entity>
-        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 8" rotation="-90 0 0"></a-entity>
-        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 10" rotation="-90 0 0"></a-entity>
-        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -4" rotation="-90 0 0"></a-entity>
-        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -6" rotation="-90 0 0"></a-entity>
-        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -8" rotation="-90 0 0"></a-entity>
-        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -10" rotation="-90 0 0"></a-entity>
-        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -12" rotation="-90 0 0"></a-entity>
-        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -14" rotation="-90 0 0"></a-entity>
-        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -22" rotation="-90 0 0"></a-entity>
-        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -24" rotation="-90 0 0"></a-entity>
-        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -26" rotation="-90 0 0"></a-entity>
-        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -28" rotation="-90 0 0"></a-entity>
-        <a-entity class="shelf_rail" geometry="primitive: plane; width: 21; height: 0.1" material="color: #3a3739" position="-17.5 0.02 -30" rotation="-90 0 0"></a-entity>
-
-        <a-entity id="exit_door-2" geometry="primitive: plane; width: 6; height: 4" material="color: #3a3739" position="-7 2 -18" rotation="0 -90 0"></a-entity>
-
-        <!-- 
-            ***********************
-            ****** EXIT ROOM ******
-            ***********************
-        -->
-
-        <a-entity class="ground" geometry="primitive: plane; width: 14; height: 14" material="src: #floorTex3" position="0 0.01 -21" rotation="-90 0 0" shadow="cast: false"></a-entity>
-        <a-entity class="ceiling" geometry="primitive: plane; width: 14; height: 14" material="src: #floorTex2" position="0 5 -21" rotation="90 0 0" shadow="cast: false"></a-entity>
-
-        <a-entity class="wall" geometry="primitive: plane; width: 14; height: 8" material="src: #wallTex" position="0 3 -28" rotation="" shadow="cast: false"></a-entity>
-        <a-entity class="wall" geometry="primitive: plane; width: 14; height: 8" material="src: #wallTex" position="7 3 -21" rotation="0 -90 0" shadow="cast: false"></a-entity>
-
-        <a-entity id="Portal-Hub" position="0 2 -21" rotation="0 180 0"
-            circles-portal="img_src:/global/assets/textures/equirectangular/PurpleBlue.jpg; title_text:Escape; link_url:/w/Escape_Hub"></a-entity>
-
         <!-- lights -->
-        <a-entity light="type: ambient; color: white; intensity:3.0"></a-entity>
+        <a-entity light="type: ambient; color: white; intensity:2.5"></a-entity>
 
         <!--telepresence robot-->
         <!--
