@@ -1,196 +1,176 @@
-let isTampering = false;
-
-function checkIfObjectIsHeld() {
-  const heldObject = CIRCLES.getPickedUpElement();
-  const tamperButton = document.getElementById('tamper-button');
-  const uiOverlay = document.getElementById('ui-overlay');
-  const clockOverlay = document.getElementById('clock-overlay');
-  const timeDisplay = document.getElementById('time-display');
-  const lockOverlay = document.getElementById('lock-overlay');
-
-  function hideOverlays() {
-    uiOverlay.style.display = 'none';
-    clockOverlay.style.display = 'none';
-    timeDisplay.style.display = 'none';
-    lockOverlay.style.display = 'none';
-    if (!isTampering) {
-      tamperButton.style.display = 'none';
-    }
+// Ensure A-Frame is fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+  var scene = document.querySelector('a-scene');
+  if (scene.hasLoaded) {
+    run();
+  } else {
+    scene.addEventListener('loaded', run);
   }
-
-  if (!isTampering) {
-    hideOverlays();
-  }
-
-  if (heldObject !== null && (heldObject.id === "Artifact-Clock" || heldObject.id === "Artifact-Briefcase") && !isTampering) {
-    tamperButton.style.display = 'block';
-    tamperButton.onclick = () => {
-      isTampering = true;
-      uiOverlay.style.display = 'block';
-      tamperButton.style.display = 'none';
-
-      if (heldObject.id === "Artifact-Clock") {
-        clockOverlay.style.display = 'block';
-        timeDisplay.style.display = 'block';
-      } else if (heldObject.id === "Artifact-Briefcase") {
-        lockOverlay.style.display = 'flex';
-      }
-    };
-  } else if (!heldObject || (heldObject.id !== "Artifact-Clock" && heldObject.id !== "Artifact-Briefcase")) {
-    isTampering = false;
-    hideOverlays();
-  }
-}
-
-setInterval(checkIfObjectIsHeld, 1000);
-
-var clockSolved = false;
-document.addEventListener('DOMContentLoaded', (event) => {
-  const clockOverlay = document.getElementById('clock-overlay');
-  const rect = clockOverlay.getBoundingClientRect();
-  const centerX = rect.left + rect.width / 2;
-  const centerY = rect.top + rect.height / 2;
-
-  function calculateTimeFromAngles(hourAngle, minuteAngle) {
-    minuteAngle -= 90;
-    hourAngle -= 3 * 30; // Each hour is 30 degrees
-
-    // Ensure angles are within 0-360 range after adjustment
-    hourAngle = (hourAngle + 360) % 360;
-    minuteAngle = (minuteAngle + 360) % 360;
-
-    // Calculate minutes
-    let minutes = Math.floor((minuteAngle / 360) * 60); // Use floor to avoid hitting 60
-
-    // Calculate hours, including the partial hour indicated by the minute hand
-    let hours = Math.floor((hourAngle / 360) * 12);
-    hours = hours % 12;
-    hours = hours === 0 ? 12 : hours; // Adjust so 0 becomes 12
-
-    // Adjust minutes to avoid displaying 60
-    if (minutes >= 60) {
-      minutes = 59; // Ensuring minutes don't display as 60
-    }
-
-    // Adjust hours and minutes for display
-    const roundedHours = hours.toString().padStart(2, '0');
-    const roundedMinutes = minutes.toString().padStart(2, '0');
-
-    // Update the time display div
-    const timeDisplay = document.getElementById('time-display');
-    timeDisplay.textContent = `${roundedHours}:${roundedMinutes}`;
-
-    // Change color if the time is 12:25 (the code)
-    if (timeDisplay.textContent === "12:25") {
-      timeDisplay.style.color = 'green';
-      clockSolved = true;
-      document.querySelector('#ding1').play();
-      // openClock(); This function needs to be defined elsewhere or represents an action to open the clock puzzle visually
-    } else {
-      timeDisplay.style.color = 'black';
-    }
-  }
-
-  function getRotationDegrees(obj) {
-    var matrix = window.getComputedStyle(obj, null).getPropertyValue('transform');
-    var angle = 0;
-    if (matrix !== 'none') {
-      var values = matrix.split('(')[1].split(')')[0].split(',');
-      var a = values[0];
-      var b = values[1];
-      angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
-    }
-    return angle + 90; // The original calculation seems off, might need adjustment based on actual usage
-  }
-
-  function onMouseUp() {
-    const hourAngle = getRotationDegrees(document.getElementById('hour-hand'));
-    const minuteAngle = getRotationDegrees(document.getElementById('minute-hand'));
-    calculateTimeFromAngles(hourAngle, minuteAngle);
-  }
-
-  function rotateHand(handId, event) {
-    const hand = document.getElementById(handId);
-    const mouseX = event.clientX - centerX;
-    const mouseY = event.clientY - centerY;
-    const angleRad = Math.atan2(mouseY, mouseX);
-    const angleDeg = angleRad * (180 / Math.PI) + 90;
-    hand.style.transform = `rotate(${angleDeg}deg)`;
-  }
-
-  ['hour-hand', 'minute-hand'].forEach(handId => {
-    document.getElementById(handId).addEventListener('mousedown', function(event) {
-      event.preventDefault();
-      function onMouseMove(event) {
-        rotateHand(handId, event);
-      }
-      document.addEventListener('mousemove', onMouseMove);
-      document.addEventListener('mouseup', function mouseUpListener() {
-        document.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mouseup', mouseUpListener);
-        onMouseUp(); // Calculate and log the time
-      });
-    });
-  });
 });
 
-var lockSolved = false;
-document.addEventListener('DOMContentLoaded', () => {
+function run() {
+  // Clock Script
+  var clockSolved = false;  // Var for when clock is solved
+  // Hour and minute hands
+  var hourHand = document.querySelector('#hour-hand');
+  var minuteHand = document.querySelector('#minute-hand');
+  // Digital interpretation of angular time
+  var timeDisplay = document.querySelector('#time-display');
+  // Interface buttons
+  var buttons = {
+    addHour: document.querySelector('#add-hour'),
+    addMinutes: document.querySelector('#add-minutes'),
+    subtractHour: document.querySelector('#subtract-hour'),
+    subtractMinutes: document.querySelector('#subtract-minutes')
+  };
+
+  // Function that rotates the arms
+  function updateRotation(hand, deltaZ, isHour) {
+    // Grab current arm's rotation
+    let currentRotation = hand.getAttribute('rotation');
+    // New rotation for arm
+    let newZ = currentRotation.z + deltaZ;
+    // Apply the new rotation
+    hand.setAttribute('rotation', {x: currentRotation.x, y: currentRotation.y, z: newZ});
+
+    // Hard coded arm length (if hour or minute arm)
+    let radius = isHour ? 0.2 : 0.3;
+    // Calculate new X and Y coordinates through trig to simulate rotating at a different anchor point than the centre
+    let newX = radius * Math.sin(newZ * Math.PI / 180);
+    let newY = -radius * Math.cos(newZ * Math.PI / 180);
+
+    // Move the arm to its new location
+    hand.setAttribute('position', {x: newX, y: newY, z: 0.05});
+
+    // Calculate the digital time from this new position
+    calcTime(hourHand, minuteHand);
+  }
+
+  // Function for turning rotation into time
+  function calcTime(hourHand, minuteHand) {
+    // Hour and minute arm rotations
+    let hourRotation = hourHand.getAttribute('rotation').z - 180;
+    let minuteRotation = minuteHand.getAttribute('rotation').z - 180;
+    // Cap hours and minutes to feasible values on a clock
+    let hours = Math.round(-hourRotation / 30) % 12;
+    let minutes = Math.round(-minuteRotation / 6) % 60;
+    hours = hours || 12;
+
+    // Formatted result for what the current time is (to be displayed to users)
+    let currentTime = `${hours}:${minutes.toString().padStart(2, '0')}`;
+    console.log(currentTime);
+
+    // Update displayed time and displayed time's colour
+    timeDisplay.setAttribute('text', 'value', currentTime);
+    if (hours === 12 && minutes === 25) {
+      timeDisplay.setAttribute('text', 'color', 'green');
+      clockSolved = true;
+    } else {
+      timeDisplay.setAttribute('text', 'color', 'white');
+      clockSolved = false;
+    }
+  }
+
+  // Button listener initialisation
+  buttons.addHour.addEventListener('click', () => updateRotation(hourHand, -30, true));
+  buttons.addMinutes.addEventListener('click', () => updateRotation(minuteHand, -30, false));
+  buttons.subtractHour.addEventListener('click', () => updateRotation(hourHand, 30, true));
+  buttons.subtractMinutes.addEventListener('click', () => updateRotation(minuteHand, 30, false));
+
+  // Default time settings
+  updateRotation(hourHand, -150, true); // Set hour hand to point up
+  updateRotation(minuteHand, -240, false); // Set minute hand to point up
+
+  // Lock Script
+  var lockSolved = false;
+  // Lists of all increment and decrement buttons
   const incrementButtons = document.querySelectorAll('.increment');
   const decrementButtons = document.querySelectorAll('.decrement');
 
-  function updateDigitColor() {
+  // Function for updating the text colour
+  function updateColour() {
+    // Select all number elements
     const digits = document.querySelectorAll('.digit');
-    const currentCombination = Array.from(digits).map(digit => digit.textContent).join('');
-    const color = currentCombination === '1212' ? 'green' : 'black';
 
+    // Convert digits to an array and then to a string
+    const currentCombination = Array.from(digits).map(digit => {
+      const textAttr = digit.getAttribute('text');
+      return textAttr ? textAttr.value : '0';  // Always return "something"
+    }).join('');
+
+    // Determine the color based on the combination
+    const colour = currentCombination === '1212' ? 'green' : 'black';
+
+    // For every digit, change its colour
     digits.forEach(digit => {
-      digit.style.color = color;
+      digit.setAttribute('text', 'color', colour);
     });
 
+    // Also mark the lock as solved
     if (currentCombination === '1212') {
       lockSolved = true;
-      document.querySelector('#ding2').play();
-      // openCase(); This function needs to be defined elsewhere or represents an action to open the lock puzzle visually
+    } else {
+      lockSolved = false;
     }
   }
 
+  // Add event listeners to all incremental buttons
   incrementButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const digitDiv = button.nextElementSibling;
-      let digit = parseInt(digitDiv.textContent, 10);
-      digit = (digit + 1) % 10;
-      digitDiv.textContent = digit;
-      updateDigitColor();
+    button.addEventListener('click', function () {
+      const digit = button.parentNode.querySelector('.digit');
+
+      // If value exists
+      if (digit) {
+        // Convert number to text and wraparound so it is locked as a single digit
+        let currentValue = parseInt(digit.getAttribute('text').value, 10);
+        currentValue = (currentValue + 1) % 10;
+        digit.setAttribute('text', 'value', currentValue.toString());
+        // Whenever a value is changed, check to see if "1212" is entered
+        updateColour();
+      }
     });
   });
 
+  // Add event listeners to all decreamental buttons
   decrementButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const digitDiv = button.previousElementSibling;
-      let digit = parseInt(digitDiv.textContent, 10);
-      digit = (digit - 1 + 10) % 10;
-      digitDiv.textContent = digit;
-      updateDigitColor();
+    button.addEventListener('click', function () {
+      const digit = button.parentNode.querySelector('.digit');
+
+      // Convert nymber to text and wraparound, just as in incremental buttons' cases
+      let currentValue = parseInt(digit.getAttribute('text').value, 10);
+      currentValue = (currentValue - 1 + 10) % 10;
+      digit.setAttribute('text', 'value', currentValue.toString());
+      // Update colour
+      updateColour();
     });
   });
 
-  updateDigitColor();
-});
+  updateColour();
 
-document.addEventListener('DOMContentLoaded', () => {
-  const exitDoor = document.querySelector("#exit_door");
-  const btn = document.querySelector("#exit_button");
+  // Function for initialising the exit button
+  function setupExitButton() {
+    const exitDoor = document.querySelector("#exit_door");
+    const btn = document.querySelector("#exit_button");
 
-  btn.addEventListener('click', () => {
-    if (lockSolved && clockSolved) {
-      document.querySelector('#garage').play();
-      exitDoor.setAttribute('animation', {
-        property: 'position',
-        dur: 10000,
-        from: "-7 2 0",
-        to: "-7 6 0"
-      });
-    }
-  });
-});
+    // Button event listener
+    btn.addEventListener('click', function () {
+      // If lock and clock solved, open door when clicked
+      if (lockSolved && clockSolved) {
+        let garage = document.querySelector('#garage');
+        if (garage) {
+          garage.play();
+          exitDoor.setAttribute('animation', {
+            property: 'position',
+            dur: 10000,
+            from: "-7 2 0",
+            to: "-7 6 0"
+          });
+        }
+      } else {
+        console.log("Conditions not met: lockSolved:", lockSolved, "clockSolved:", clockSolved);
+      }
+    });
+  }
+
+  setupExitButton();
+}
