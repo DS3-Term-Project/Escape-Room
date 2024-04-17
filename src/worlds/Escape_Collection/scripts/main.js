@@ -81,6 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
           if (currentColor === 'yellow') {
             changeColor('white');
             buttonPuzzleSolved = true;
+            // Because this puzzle was updated, check to see if door should open
+            checkPuzzlesAndOpenDoor();
             return;
           }
           // If not solved, move to next colour and sequence
@@ -115,6 +117,93 @@ document.addEventListener('DOMContentLoaded', () => {
    * */
 
   let shelfPuzzleSolved = false;
+  // A frame component for the buttons to store the object, direction, and whether the shelf is in motion
+  AFRAME.registerComponent('move-shelf', {
+    schema: {
+      // Shelf entity
+      target: {type: 'selector'},
+      // Move distance and direction
+      distance: {type: 'number', default: 2},
+      // Whether the shelf is moving
+      moving: {type: 'boolean', default: false},
+      // Whether the correct symbol is visible
+      state: {type: 'boolean', default: true}
+    },
 
+    // Add listener to the button
+    init: function() {
+      this.el.addEventListener('click', () => {
+        // If in motion, do not try to move again (prevents button spam)
+        if (this.data.moving) return;
+        this.data.moving = true;
 
+        // Calculate new position
+        const currentPosition = this.data.target.getAttribute('position');
+        const newPosition = currentPosition.x + this.data.distance;
+
+        // Animate shelf
+        this.data.target.setAttribute('animation', {
+          // Ease the position
+          property: 'position',
+          // Only applies to X coord
+          to: {x: newPosition, y: currentPosition.y, z: currentPosition.z},
+          // 1.5 Second animation
+          dur: 1200,
+          // IDK where I found this but it goes hard- smooths the animation
+          easing: 'easeInOutQuad'
+        });
+
+        // Wait for animation to complete so people can't spam the button and break it
+        this.data.target.addEventListener('animationcomplete', () => {
+            // Invert visible symbol state
+            this.data.state = !this.data.state;
+            // Invert direction
+            this.data.distance *= -1;
+            // Stop moving
+            this.data.moving = false;
+            // Check if puzzle solved
+            this.checkPuzzleSolution();
+            // Log shelf state to console
+            // console.log(`${this.data.target.id} state: ${this.data.state}`);
+          },
+          // Force a single execution to prevent inconsistent state and direction inversions
+          {once: true});
+      });
+    },
+
+    // Function for checking whether or not the puzzle has been solved
+    checkPuzzleSolution: function() {
+      // Get all shelf states
+      const shelf1 = document.querySelector('#shelf_1_button').components['move-shelf'].data.state;
+      const shelf2 = document.querySelector('#shelf_2_button').components['move-shelf'].data.state;
+      const shelf3 = document.querySelector('#shelf_3_button').components['move-shelf'].data.state;
+      const shelf4 = document.querySelector('#shelf_4_button').components['move-shelf'].data.state;
+
+      // Check if puzzle is solved
+      if (shelf1 === true && shelf2 === false && shelf3 === true && shelf4 === false) {
+        shelfPuzzleSolved = true;
+        // Because this puzzle was updated, check to see if door should open
+        checkPuzzlesAndOpenDoor();
+      } else {
+        shelfPuzzleSolved = false;
+      }
+    }
+  });
+
+  // Function for handling door opening and closing when all puzzles are solved
+  function checkPuzzlesAndOpenDoor() {
+    // Check if puzzles are solved
+    if (buttonPuzzleSolved && shelfPuzzleSolved) {
+      // Get the door entity
+      const door = document.querySelector('#exit_door-2');
+
+      // Raise the door
+      door.setAttribute('animation', {
+        property: 'position',
+        to: `${door.getAttribute('position').x} ${door.getAttribute('position').y + 4} ${door.getAttribute('position').z}`,
+        dur: 1000,
+        easing: 'linear'
+      });
+    }
+  }
 });
