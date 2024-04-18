@@ -13,7 +13,7 @@
     <!-- a-scene with 'circles-properties' component [REQUIRED] -->
     <a-scene circles_scene_properties background="color:black">
 
-        <a-assets timeout="30000">
+        <a-assets timeout="60000">
             <!-- Circles' built-in assets [REQUIRED] -->
             <circles-assets />
 
@@ -172,6 +172,40 @@
         <a-entity circles-networked-basic class="collectionShelf" id="shelf_3" position="-21.2 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" position="-25.2 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" position="-27 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
+        
+        <!-- LIGHTBULB PUZZLE -->
+
+        <a-entity class="bulbPuzzle" id="socket1" position="-7 1.5 -3.5" rotation="90 0 90">
+            <a-entity class="socket" gltf-model="assets/models/lightbulbSocket_obj.glb" position="" rotation="" scale="10 10 10" shadow="receive: false" ></a-entity>
+            <a-entity class="bulb" id="bulbA1" circles-pickup-object="pickupScale:10 10 10; dropScale: 10 10 10" gltf-model="assets/models/blueLightbulb_obj.glb" position="-2 4.8 0.18" rotation="0 0 180" scale="10 10 10" shadow="receive: false"></a-entity>
+            <a-entity class="bulb" id="bulbA2" circles-pickup-object="pickupScale:10 10 10; dropPosition: 0 0 -0.175; dropRotation: 0 0 0; dropScale: 10 10 10" gltf-model="assets/models/greenLightbulb_obj.glb" position="0 0 -0.175" rotation="" scale="10 10 10" shadow="receive: false" ></a-entity>
+            <a-entity class="bulb" id="bulbA3" circles-pickup-object="pickupScale:10 10 10; dropPosition: 0 0 0.175; dropRotation: 0 0 0; dropScale: 10 10 10" gltf-model="assets/models/yellowLightbulb_obj.glb" position="0 0 0.175" rotation="" scale="10 10 10" shadow="receive: false" ></a-entity>
+            <a-entity class="bulb" id="bulbA4" circles-pickup-object="pickupScale:10 10 10; dropPosition: 0 0 0.53; dropRotation: 0 0 0; dropScale: 10 10 10" gltf-model="assets/models/redLightbulb_obj.glb" position="0 0 0.53" rotation="" scale="10 10 10" shadow="receive: false"></a-entity>
+        </a-entity>
+
+        <a-entity class="bulbPuzzle" id="socket2" position="-17.5 1.5 -9" rotation="90 0 0">
+            <a-entity class="socket" gltf-model="assets/models/lightbulbSocket_obj.glb" position="" rotation="" scale="10 10 10" shadow="receive: false"></a-entity>
+            <a-entity class="bulb" id="bulbB1" circles-pickup-object="pickupScale:10 10 10; dropPosition: 0 0 -0.53; dropRotation: 0 0 0; dropScale: 10 10 10" gltf-model="assets/models/blueLightbulb_obj.glb" position="0 0 -0.53" rotation="" scale="10 10 10" shadow="receive: false"></a-entity>
+            <a-entity class="bulb" id="bulbB2" circles-pickup-object="pickupScale:10 10 10; dropScale: 10 10 10" gltf-model="assets/models/greenLightbulb_obj.glb" position="-3.7 4.8 0.18" rotation="0 0 90" scale="10 10 10" shadow="receive: false"></a-entity>
+            <a-entity class="bulb" id="bulbB3" circles-pickup-object="pickupScale:10 10 10; dropPosition: 0 0 0.175; dropRotation: 0 0 0; dropScale: 10 10 10" gltf-model="assets/models/yellowLightbulb_obj.glb" position="0 0 0.175" rotation="" scale="10 10 10" shadow="receive: false"></a-entity>
+            <a-entity class="bulb" id="bulbB4" circles-pickup-object="pickupScale:10 10 10; dropPosition: 0 0 0.53; dropRotation: 0 0 0; dropScale: 10 10 10" gltf-model="assets/models/redLightbulb_obj.glb" position="0 0 0.53" rotation="" scale="10 10 10" shadow="receive: false"></a-entity>
+        </a-entity>
+
+        <a-entity class="bulbPuzzle" id="socket3" position="-28 1.5 3" rotation="90 0 -90">
+            <a-entity class="socket" gltf-model="assets/models/lightbulbSocket_obj.glb" position="" rotation="" scale="10 10 10" shadow="receive: false"></a-entity>
+            <a-entity class="bulb" id="bulbC1" circles-pickup-object="pickupScale:10 10 10; dropPosition: 0 0 -0.53; dropRotation: 0 0 0; dropScale: 10 10 10" gltf-model="assets/models/blueLightbulb_obj.glb" position="0 0 -0.53" rotation="" scale="10 10 10" shadow="receive: false"></a-entity>
+            <a-entity class="bulb" id="bulbC2" circles-pickup-object="pickupScale:10 10 10; dropPosition: 0 0 -0.175; dropRotation: 0 0 0; dropScale: 10 10 10" gltf-model="assets/models/greenLightbulb_obj.glb" position="0 0 -0.175" rotation="" scale="10 10 10" shadow="receive: false"></a-entity>
+            <a-entity class="bulb" id="bulbC3" circles-pickup-object="pickupScale:10 10 10; dropScale: 10 10 10" gltf-model="assets/models/yellowLightbulb_obj.glb" position="17 3.4 0.18" rotation="0 0 -90" scale="10 10 10" shadow="receive: false"></a-entity>
+            <a-entity class="bulb" id="bulbC4" circles-pickup-object="pickupScale:10 10 10; dropPosition: 0 0 0.53; dropRotation: 0 0 0; dropScale: 10 10 10" gltf-model="assets/models/redLightbulb_obj.glb" position="0 0 0.53" rotation="" scale="10 10 10" shadow="receive: false"></a-entity>
+        </a-entity>
+
+        <a-entity class="bulbPuzzle" id="socket4" position="-28 1.5 -21" rotation="90 0 -90">
+            <a-entity class="socket" gltf-model="assets/models/lightbulbSocket_obj.glb" position="" rotation="" scale="10 10 10" shadow="receive: false"></a-entity>
+            <a-entity class="bulb" id="bulbD1" circles-pickup-object="pickupScale:10 10 10; dropPosition: 0 0 -0.53; dropRotation: 0 0 0; dropScale: 10 10 10" gltf-model="assets/models/blueLightbulb_obj.glb" position="0 0 -0.53" rotation="" scale="10 10 10" shadow="receive: false"></a-entity>
+            <a-entity class="bulb" id="bulbD2" circles-pickup-object="pickupScale:10 10 10; dropPosition: 0 0 -0.175; dropRotation: 0 0 0; dropScale: 10 10 10" gltf-model="assets/models/greenLightbulb_obj.glb" position="0 0 -0.175" rotation="" scale="10 10 10" shadow="receive: false"></a-entity>
+            <a-entity class="bulb" id="bulbD3" circles-pickup-object="pickupScale:10 10 10; dropPosition: 0 0 0.175; dropRotation: 0 0 0; dropScale: 10 10 10" gltf-model="assets/models/yellowLightbulb_obj.glb" position="0 0 0.175" rotation="" scale="10 10 10" shadow="receive: false"></a-entity>
+            <a-entity class="bulb" id="bulbD4" circles-pickup-object="pickupScale:10 10 10; dropScale: 10 10 10" gltf-model="assets/models/redLightbulb_obj.glb" position="-7.75 11.75 0.18" rotation="0 0 0" scale="10 10 10" shadow="receive: false"></a-entity>
+        </a-entity>
 
         <!-- CLUTTER -->
 
@@ -267,7 +301,7 @@
     <circles-end-scripts />
 
     <script src="scripts/main.js"></script>
-
+    
     <script>
       // A frame component for the buttons to store the object, direction, and whether the shelf is in motion
       AFRAME.registerComponent('move-shelf', {
