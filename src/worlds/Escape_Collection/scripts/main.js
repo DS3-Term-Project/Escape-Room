@@ -275,6 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
              (bulb4.getAttribute('position').z === 0.53));
 
          bulbPuzzleSolved = (sock1Solved && sock2Solved && sock3Solved && sock4Solved);
+         if (bulbPuzzleSolved) checkPuzzlesAndOpenDoor();
 
          /*
          console.log('Player postion: ', playerPos);
