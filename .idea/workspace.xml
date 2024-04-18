@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="800b0002-f257-43a8-a24b-9d8cf66d71c9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/worlds/Escape_Collection/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/worlds/Escape_Collection/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/worlds/Escape_Collection/scripts/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/worlds/Escape_Collection/scripts/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

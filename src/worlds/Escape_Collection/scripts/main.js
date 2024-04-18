@@ -1,26 +1,65 @@
 document.addEventListener('DOMContentLoaded', () => {
-    /**
-     * Button Puzzle: Codes are hidden in both the collections room and the lab, of which players must enter
-     * */
+  /**
+   * Button Puzzle: Codes are hidden in both the collections room and the lab, of which players must enter
+   * */
 
-    let buttonPuzzleSolved = false;
+  let buttonPuzzleSolved = false;
 
-    // Button container element
-    const buttonGrid = document.querySelector('#buttonGrid');
-    // Storage for all buttons
-    const buttons = buttonGrid.querySelectorAll('[id^="puzzleButton"]');
-    // Sequence that player is currently entering
-    let currentSequence = new Set();
-    // Default colour is red
-    let currentColor = 'red';
+  // Button container element
+  const buttonGrid = document.querySelector('#buttonGrid');
+  // Storage for all buttons
+  const buttons = buttonGrid.querySelectorAll('[id^="puzzleButton"]');
+  // Sequence that player is currently entering
+  let currentSequence = new Set();
+  // Default colour is red
+  let currentColor = 'red';
 
-    // All stored pinpad sequences
-    const sequences = {
-        red: new Set([1, 3, 5, 9]),
-        blue: new Set([1, 4, 7, 8, 9]),
-        green: new Set([1, 2, 3, 4, 6, 9]),
-        yellow: new Set([2, 4, 6, 7, 8, 9])
+  // All stored pinpad sequences
+  const sequences = {
+    red: new Set([1, 3, 5, 9]),
+    blue: new Set([1, 4, 7, 8, 9]),
+    green: new Set([1, 2, 3, 4, 6, 9]),
+    yellow: new Set([2, 4, 6, 7, 8, 9])
+  };
+
+  // Function for resetting all buttons back to first sequence (when player gets sequence wrong)
+  function resetButtons() {
+    // For every button, set to red
+    buttons.forEach(button => {
+      button.setAttribute('circles-button', 'pedastal_color:rgb(74, 87, 95); button_color:rgb(255, 0, 0); button_color_hover:rgb(255, 255, 255);');
+    });
+    // Reset sequence
+    currentSequence.clear();
+    currentColor = 'red';
+  }
+
+  // Function for changing the colour of all buttons
+  function changeColor(nextColor) {
+    // Log colour change (for testing)
+    // console.log(`Changing color to ${nextColor}`);
+    currentColor = nextColor;
+    const color = getColor(nextColor);
+    // Apply colour change to all buttons
+    buttons.forEach(button => {
+      button.setAttribute('circles-button', `pedastal_color:rgb(74, 87, 95); button_color:${color}; button_color_hover:rgb(255, 255, 255);`);
+    });
+    // Reset sequence
+    currentSequence.clear();
+  }
+
+  // Function for storing colours
+  function getColor(color) {
+    // All colours
+    const colors = {
+      white: 'rgb(255, 255, 255)',
+      red: 'rgb(255, 0, 0)',
+      blue: 'rgb(0, 0, 255)',
+      green: 'rgb(0, 255, 0)',
+      yellow: 'rgb(255, 255, 0)'
     };
+    // Return requested colour
+    return colors[color];
+  }
 
   // Add eventlisteners to the buttons
   buttons.forEach((button, index) => {
@@ -67,35 +106,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return false;
       }
     }
-}
+    return true;
+  }
 
-    // Function for changing the colour of all buttons
-    function changeColor(nextColor) {
-        // Log colour change (for testing)
-        // console.log(`Changing color to ${nextColor}`);
-        currentColor = nextColor;
-        const color = getColor(nextColor);
-        // Apply colour change to all buttons
-        buttons.forEach(button => {
-            button.setAttribute('circles-button', `pedastal_color:rgb(74, 87, 95); button_color:${color}; button_color_hover:rgb(255, 255, 255);`);
-        });
-        // Reset sequence
-        currentSequence.clear();
-    }
+  // Reset buttons to default on load
+  resetButtons();
 
-    // Function for storing colours
-    function getColor(color) {
-        // All colours
-        const colors = {
-            white: 'rgb(255, 255, 255)',
-            red: 'rgb(255, 0, 0)',
-            blue: 'rgb(0, 0, 255)',
-            green: 'rgb(0, 255, 0)',
-            yellow: 'rgb(255, 255, 0)'
-        };
-        // Return requested colour
-        return colors[color];
-    }
+  /**
+   * Shelf Puzzle: Players must move shelves around to reveal symbols such that they align with their riddle
+   * */
 
   let shelfPuzzleSolved = false;
   // A frame component for the buttons to store the object, direction, and whether the shelf is in motion
@@ -181,32 +200,32 @@ document.addEventListener('DOMContentLoaded', () => {
      const socketPos2 = document.querySelector('#socket2').getAttribute('position');
      const socketPos3 = document.querySelector('#socket3').getAttribute('position');
      const socketPos4 = document.querySelector('#socket4').getAttribute('position');
- 
+
      const bulb1 = document.querySelector('#bulbA1');
      const bulb2 = document.querySelector('#bulbB2');
      const bulb3 = document.querySelector('#bulbC3');
      const bulb4 = document.querySelector('#bulbD4');
- 
+
      var sock1Solved = false;
      var sock2Solved = false;
      var sock3Solved = false;
      var sock4Solved = false;
      var bulbPuzzleSolved = false;
- 
+
      function calculateDistance(point1, point2) {
          const dx = point2.x - point1.x + 17.5;
          const dy = point2.y - point1.y;
          const dz = point2.z - point1.z + 10;
          return Math.sqrt(dx * dx + dy * dy + dz * dz);
      }
- 
+
      function checkSolved() {
- 
+
          socket1Distance = calculateDistance(playerPos, socketPos1);
          socket2Distance = calculateDistance(playerPos, socketPos2);
          socket3Distance = calculateDistance(playerPos, socketPos3);
          socket4Distance = calculateDistance(playerPos, socketPos4);
- 
+
          if (socket1Distance < 3.0) {
              bulb1.setAttribute('circles-pickup-object', 'dropPosition', '0 0 -0.53');
              bulb1.setAttribute('circles-pickup-object', 'dropRotation', '0 0 0');
@@ -214,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
              bulb1.setAttribute('circles-pickup-object', 'dropPosition', '-2 4.8 0.18');
              bulb1.setAttribute('circles-pickup-object', 'dropRotation', '0 0 180');
          }
- 
+
          if (socket2Distance < 3.0) {
              bulb2.setAttribute('circles-pickup-object', 'dropPosition', '0 0 -0.175');
              bulb2.setAttribute('circles-pickup-object', 'dropRotation', '0 0 0');
@@ -222,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
              bulb2.setAttribute('circles-pickup-object', 'dropPosition', '-3.7 4.8 0.18');
              bulb2.setAttribute('circles-pickup-object', 'dropRotation', '0 0 90');
          }
- 
+
          if (socket3Distance < 3.0) {
              bulb3.setAttribute('circles-pickup-object', 'dropPosition', '0 0 0.175');
              bulb3.setAttribute('circles-pickup-object', 'dropRotation', '0 0 0');
@@ -230,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
              bulb3.setAttribute('circles-pickup-object', 'dropPosition', '17 3.4 0.18');
              bulb3.setAttribute('circles-pickup-object', 'dropRotation', '0 0 -90');
          }
- 
+
          if (socket4Distance < 3.0) {
              bulb4.setAttribute('circles-pickup-object', 'dropPosition', '0 0 0.53');
              bulb4.setAttribute('circles-pickup-object', 'dropRotation', '0 0 0');
@@ -238,25 +257,25 @@ document.addEventListener('DOMContentLoaded', () => {
              bulb4.setAttribute('circles-pickup-object', 'dropPosition', '-7.75 11.75 0.18');
              bulb4.setAttribute('circles-pickup-object', 'dropRotation', '0 0 0');
          }
- 
+
          sock1Solved = ((bulb1.getAttribute('position').x === 0) &&
              (bulb1.getAttribute('position').y === 0) &&
              (bulb1.getAttribute('position').z === -0.53));
- 
+
          sock2Solved = ((bulb2.getAttribute('position').x === 0) &&
              (bulb2.getAttribute('position').y === 0) &&
              (bulb2.getAttribute('position').z === -0.175));
- 
+
          sock3Solved = ((bulb3.getAttribute('position').x === 0) &&
              (bulb3.getAttribute('position').y === 0) &&
              (bulb3.getAttribute('position').z === 0.175));
- 
+
          sock4Solved = ((bulb4.getAttribute('position').x === 0) &&
              (bulb4.getAttribute('position').y === 0) &&
              (bulb4.getAttribute('position').z === 0.53));
- 
+
          bulbPuzzleSolved = (sock1Solved && sock2Solved && sock3Solved && sock4Solved);
- 
+
          /*
          console.log('Player postion: ', playerPos);
          console.log('Distance from socket 1: ', socket1Distance);
@@ -289,6 +308,4 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
-
-
 });
