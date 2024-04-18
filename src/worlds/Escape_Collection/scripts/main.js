@@ -171,24 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Function for handling door opening and closing when all puzzles are solved
-  function checkPuzzlesAndOpenDoor() {
-    // Check if puzzles are solved
-    if (buttonPuzzleSolved && shelfPuzzleSolved) {
-      // Get the door entity
-      const door = document.querySelector('#exit_door-2');
-
-      // Raise the door
-      door.setAttribute('animation', {
-        property: 'position',
-        to: `${door.getAttribute('position').x} ${door.getAttribute('position').y + 4} ${door.getAttribute('position').z}`,
-        dur: 1000,
-        easing: 'linear'
-      });
-    }
-  }
-
-  /************************
+    /************************
      *** LIGHTBULB PUZZLE ***
      ************************/
 
@@ -208,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
      var sock2Solved = false;
      var sock3Solved = false;
      var sock4Solved = false;
-     var bulbSolved = false;
+     var bulbPuzzleSolved = false;
  
      function calculateDistance(point1, point2) {
          const dx = point2.x - point1.x + 17.5;
@@ -272,8 +255,9 @@ document.addEventListener('DOMContentLoaded', () => {
              (bulb4.getAttribute('position').y === 0) &&
              (bulb4.getAttribute('position').z === 0.53));
  
-         bulbSolved = (sock1Solved && sock2Solved && sock3Solved && sock4Solved);
+         bulbPuzzleSolved = (sock1Solved && sock2Solved && sock3Solved && sock4Solved);
  
+         /*
          console.log('Player postion: ', playerPos);
          console.log('Distance from socket 1: ', socket1Distance);
          console.log('Distance from socket 2: ', socket2Distance);
@@ -284,7 +268,27 @@ document.addEventListener('DOMContentLoaded', () => {
          console.log('Socket 3 solved: ', sock3Solved);
          console.log('Socket 4 solved: ', sock4Solved);
          console.log('All sockets solved: ', bulbSolved);
+         */
      }
      setInterval(checkSolved, 500);
+
+
+  // Function for handling door opening and closing when all puzzles are solved
+  function checkPuzzlesAndOpenDoor() {
+    // Check if puzzles are solved
+    if (buttonPuzzleSolved && shelfPuzzleSolved && bulbPuzzleSolved) {
+      // Get the door entity
+      const door = document.querySelector('#exit_door-2');
+
+      // Raise the door
+      door.setAttribute('animation', {
+        property: 'position',
+        to: `${door.getAttribute('position').x} ${door.getAttribute('position').y + 4} ${door.getAttribute('position').z}`,
+        dur: 1000,
+        easing: 'linear'
+      });
+    }
+  }
+
 
 });
