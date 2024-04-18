@@ -58,7 +58,7 @@
         <a-entity class="ceiling" geometry="primitive: plane; width: 21; height: 42" material="src: #floorTex2; repeat: 8 8" position="-17.5 5 -10" rotation="90 0 0" shadow="cast: false"></a-entity>
 
         <a-entity class="wall" geometry="primitive: plane; width: 26; height: 8" material="src: #wallTex; side: double" position="-7 3 -2" rotation="0 90 0" shadow="cast: false"></a-entity>
-        <a-entity id="exit_door" geometry="primitive:plane; width:6; height:4;" material="color:#3a3739; side: double" position="-7.01 2 0" rotation="0 90 0"></a-entity>
+        <a-entity id="exit_door" geometry="primitive:plane; width:6; height:4;" material="color:#3a3739; side: double" position="-7.01 2 0" rotation="0 90 0" circles-networked-basic></a-entity>
 
         <a-entity class="wall" geometry="primitive: plane; width: 21; height: 8" material="src: #wallTex" position="-17.5 3 11" rotation="0 180 0" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: plane; width: 21; height: 8" material="src: #wallTex" position="-17.5 3 -29" rotation="" shadow="cast: false"></a-entity>
@@ -215,14 +215,15 @@
         <a-entity gltf-model="#door" position="-17.5 0 -18" rotation="0 0 0" scale="2.5 2.5 2.5" shadow="cast:true; receive:false;"></a-entity>
         <a-entity gltf-model="#box" position="-17.5 0 -20" rotation="0 0 0" scale="5 5 5" shadow="cast:true; receive:false;"></a-entity>
 
+        <!--
         <a-entity gltf-model="#lightbulbSocket" position="-17.5 0 -8" rotation="0 0 0" scale="5 5 5" shadow="cast:true; receive:false;"></a-entity>
         <a-entity gltf-model="#lightbulbYellow" position="-17.5 0 -7" rotation="0 0 0" scale="5 5 5" shadow="cast:true; receive:false;"></a-entity>
         <a-entity gltf-model="#lightbulbRed" position="-17.5 0 -6" rotation="0 0 0" scale="5 5 5" shadow="cast:true; receive:false;"></a-entity>
         <a-entity gltf-model="#lightbulbGreen" position="-17.5 0 -5" rotation="0 0 0" scale="5 5 5" shadow="cast:true; receive:false;"></a-entity>
         <a-entity gltf-model="#lightbulbBlue" position="-17.5 0 -4" rotation="0 0 0" scale="5 5 5" shadow="cast:true; receive:false;"></a-entity>
-
-        <a-entity id="exit_door-2" geometry="primitive: plane; width: 6; height: 4" material="color: #3a3739" position="-7 2 -18" rotation="0 -90 0"></a-entity>
-
+        -->
+        <a-entity id="exit_door-2" circles-networked-basic geometry="primitive: plane; width: 6; height: 4" material="color: #3a3739" position="-7 2 -18" rotation="0 -90 0"></a-entity>
+            
         <!--
             ***********************
             ****** EXIT ROOM ******
@@ -301,56 +302,6 @@
     <circles-end-scripts />
 
     <script src="scripts/main.js"></script>
-    
-    <script>
-      // A frame component for the buttons to store the object, direction, and whether the shelf is in motion
-      AFRAME.registerComponent('move-shelf', {
-        schema: {
-          // Shelf entity
-          target: {type: 'selector'},
-          // Move distance and direction
-          distance: {type: 'number', default: 2},
-          // Whether the shelf is moving
-          moving: {type: 'boolean', default: false},
-          // Whether the correct symbol is visible
-          state: {type: 'boolean', default: true}
-        },
-
-        // Add listener to the button
-        init: function() {
-          this.el.addEventListener('click', () => {
-            // If in motion, do not try to move again (prevents button spam)
-            if (this.data.moving) return;
-            this.data.moving = true;
-
-            // Calculate new position
-            const currentPosition = this.data.target.getAttribute('position');
-            const newPosition = currentPosition.x + this.data.distance;
-
-            // Animate shelf
-            this.data.target.setAttribute('animation', {
-              // Ease the position
-              property: 'position',
-              // Only applies to X coord
-              to: {x: newPosition, y: currentPosition.y, z: currentPosition.z},
-              // 1.5 Second animation
-              dur: 1500,
-              easing: 'easeInOutQuad'
-            });
-
-            // Wait for animation to complete so people can't spam the button and break it
-            this.data.target.addEventListener('animationcomplete', () => {
-              // Invert direction
-              this.data.distance *= -1;
-              // Stop moving
-              this.data.moving = false;
-            }, {once: true});
-          });
-        }
-      });
-    </script>
-
-
 </body>
 
 </html>
