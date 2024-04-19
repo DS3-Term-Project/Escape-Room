@@ -58,7 +58,7 @@
         <a-entity class="ceiling" geometry="primitive: plane; width: 21; height: 42" material="src: #floorTex2; repeat: 8 8" position="-17.5 5 -10" rotation="90 0 0" shadow="cast: false"></a-entity>
 
         <a-entity class="wall" geometry="primitive: plane; width: 26; height: 8" material="src: #wallTex; side: double" position="-7 3 -2" rotation="0 90 0" shadow="cast: false"></a-entity>
-        <a-entity id="exit_door" geometry="primitive:plane; width:6; height:4;" material="color:#3a3739; side: double" position="-7.01 2 0" rotation="0 90 0" circles-networked-basic></a-entity>
+        <a-entity id="exit_door" geometry="primitive:plane; width:6; height:4;" material="color:#3a3739; side: double" position="-7.05 2 0" rotation="0 90 0" circles-networked-basic></a-entity>
 
         <a-entity class="wall" geometry="primitive: plane; width: 21; height: 8" material="src: #wallTex" position="-17.5 3 11" rotation="0 180 0" shadow="cast: false"></a-entity>
         <a-entity class="wall" geometry="primitive: plane; width: 21; height: 8" material="src: #wallTex" position="-17.5 3 -29" rotation="" shadow="cast: false"></a-entity>
@@ -172,7 +172,7 @@
         <a-entity circles-networked-basic class="collectionShelf" id="shelf_3" position="-21.2 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" position="-25.2 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
         <a-entity class="collectionShelf" position="-27 0 -25" gltf-model="assets/models/shelf_obj.glb" rotation="" scale="30 30 30" shadow="receive: false"></a-entity>
-        
+
         <!-- LIGHTBULB PUZZLE -->
 
         <a-entity class="bulbPuzzle" id="socket1" position="-7 1.5 -3.5" rotation="90 0 90">
@@ -222,7 +222,7 @@
         <a-entity gltf-model="#lightbulbBlue" position="-17.5 0 -4" rotation="0 0 0" scale="5 5 5" shadow="cast:true; receive:false;"></a-entity>
         -->
         <a-entity id="exit_door-2" circles-networked-basic geometry="primitive: plane; width: 6; height: 4" material="color: #3a3739" position="-7 2 -18" rotation="0 -90 0"></a-entity>
-            
+
         <!--
             ***********************
             ****** EXIT ROOM ******
@@ -292,6 +292,32 @@
       <a-image src="assets/textures/flask.png" position="-5.762 2 20.99" rotation="0 180 15" scale="1 1.25 1" material="side: front" geometry=""></a-image>
       <a-image src="assets/textures/gear.png" position="5.5 2 20.99" rotation="0 180 0" scale="" material="side: front" geometry=""></a-image>
       <a-image src="assets/textures/robot.png" position="-5.76203 2 -18.99" rotation="0 0 17" scale="" material="side: front" geometry=""></a-image>
+
+      <!-- Navigational Circles (added by Blake) -->
+      <a-entity circles-checkpoint="" position="1 0.1 10" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+      <a-entity circles-checkpoint="" position="-6 0.1 12" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+      <a-entity circles-checkpoint="" position="-9.5 0.1 12" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+      <a-entity circles-checkpoint="" position="8 0.1 17.2" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+      <a-entity circles-checkpoint="" position="1 0.1 -8" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+      <a-entity circles-checkpoint="" position="7 0.1 -10" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+      <a-entity circles-checkpoint="" position="-6 0.1 -10" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+      <a-entity circles-checkpoint="" position="0.5 0.1 -5" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+      <a-entity circles-checkpoint="" position="-6 0.1 7" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+      <a-entity circles-checkpoint="" position="0.5 0.1 2" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+      <a-entity circles-checkpoint="" position="10 0.1 5.5" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+      <a-entity circles-checkpoint="" position="9 0.1 -6" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+      <a-entity circles-checkpoint="" position="16 0.1 -8" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+      <a-entity circles-checkpoint="" position="6 0.1 12" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+      <a-entity circles-checkpoint="" position="5 0.1 -4" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+      <a-entity circles-checkpoint="" position="5 0.1 -5" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+      <a-entity circles-checkpoint="" position="-9.5 0.1 -10" class="checkpoint interactive" checkpoint="" material="color: rgb(57, 187, 130); emissive: rgb(7,137,80); roughness: 0.8" geometry="primitive: cylinder; radius: 0.5; height: 0.04" scale="" circles-material-extend-fresnel="fresnelOpacity: 0" sound="volume: 0.5" circles-interactive-object="type: outline"></a-entity>
+
+
+
+
+
+
+
 
 
 
